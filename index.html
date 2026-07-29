@@ -900,10 +900,7 @@ function updateStaticTexts(){
   const lt=document.getElementById('langToggle');
   if(lt)lt.textContent=LANG==='ko'?'ENG':'KOR';
 }
-function refreshDynamicContent(){
-  const active=document.querySelector('.screen.active');
-  if(!active)return;
-  const id=active.id;
+function refreshScreenContent(id){
   if(id==='inviteeLanding'){ buildRelGrid(); }
   if(id==='test'){
     if(S.mode==='self'){$('modeBadge').textContent=T.selfTestBadge;}
@@ -915,12 +912,16 @@ function refreshDynamicContent(){
     if(S.responses.length) showFakpok('fakpokResult',S.self,S.responses);
     $('respCount').textContent=S.responses.length?T.respCount(S.responses.length):T.respCountZero;
   }
-  if(id==='intimacyScreen'){
-    if(S.rel)$('intimacyBadge').textContent=T.intimacyBadge(REL_META[S.rel].icon,REL_META[S.rel].name);
+  if(id==='intimacyScreen'&&S.rel){
+    $('intimacyBadge').textContent=T.intimacyBadge(REL_META[S.rel].icon,REL_META[S.rel].name);
     renderIntimacyOptions();
   }
   if(id==='map'){ renderMap(); }
   if(id==='feedbackView'){ loadFeedbackList(); }
+}
+function refreshDynamicContent(){
+  const active=document.querySelector('.screen.active');
+  if(active) refreshScreenContent(active.id);
 }
 function setLang(lang){
   if(lang===LANG)return;
@@ -945,7 +946,7 @@ function go(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   $(id).classList.add('active');
   window.scrollTo({top:0});
-  if(id==='map') renderMap();
+  refreshScreenContent(id);
 }
 function showLoad(msg){$('loadingMsg').textContent=msg||T.saving;$('loading').classList.add('show')}
 function hideLoad(){$('loading').classList.remove('show')}
@@ -1093,14 +1094,12 @@ buildRelGrid();
 ═══════════════════════════════════════════ */
 function startSelf(){
   S.mode='self';S.qIdx=0;S.answers=new Array(SELF_Q.length).fill(null);
-  $('modeBadge').textContent=T.selfTestBadge;
-  go('test');renderQ();
+  go('test');
 }
 function startObserver(){
   if(!S.rel)return;
   S.mode='observer';S.qIdx=0;S.answers=new Array(8).fill(null);S.intimacy=null;
-  $('modeBadge').textContent=T.observerBadge(REL_META[S.rel].icon,REL_META[S.rel].name);
-  go('test');renderQ();
+  go('test');
 }
 function renderQ(){
   const Q=S.mode==='self'?SELF_Q:OBS_Q[S.rel];
@@ -1137,7 +1136,6 @@ async function finishTest(){
       $('inviteLinkBox').textContent=T.saveFailed;
     }
     hideLoad();
-    renderSelfResult();
     go('result');
   }else{
     showIntimacyScreen();
@@ -1160,12 +1158,10 @@ function renderIntimacyOptions(){
   $('intimacyNextBtn').disabled=!S.intimacy;
 }
 function showIntimacyScreen(){
-  $('intimacyBadge').textContent=T.intimacyBadge(REL_META[S.rel].icon,REL_META[S.rel].name);
-  renderIntimacyOptions();
   go('intimacyScreen');
 }
 function backToLastQ(){
-  const Q=OBS_Q[S.rel];S.qIdx=Q.length-1;go('test');renderQ();
+  const Q=OBS_Q[S.rel];S.qIdx=Q.length-1;go('test');
 }
 async function confirmIntimacy(){
   const sc=scoreQ(OBS_Q[S.rel],S.answers);
@@ -1458,7 +1454,6 @@ function renderMap(){
             $('navMapBtn').style.display='inline';
             $('respCount').textContent=T.respCount(S.responses.length);
           }
-          renderSelfResult();
           go('result');
           const base=location.origin+location.pathname;
           $('inviteLinkBox').textContent=base+'?s='+saved;
@@ -1506,7 +1501,6 @@ async function loadFeedbackList(){
 }
 async function loadAndShowFeedback(){
   go('feedbackView');
-  loadFeedbackList();
 }
 function openFeedback(){
   $('fbOverlay').classList.add('open');
