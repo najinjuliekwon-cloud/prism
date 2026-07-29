@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>PRISM — 당신 뒤에서 오가는 평가가 있습니다</title>
+<title>PRISM — There's an evaluation happening behind your back</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="당신 뒤에서 오가는 평가가 있습니다 — PRISM">
-<meta property="og:description" content="친구·연인·동료가 몰래 평가한 나의 실제 모습. 자아상 vs 타인 시선 — 팩폭 지수 공개.">
+<meta property="og:title" content="There's an evaluation happening behind your back — PRISM">
+<meta property="og:description" content="How friends, partners, and coworkers secretly rate the real you. Self-image vs. others' view — your Fact-Bomb Index revealed.">
 <meta property="og:image" content="https://prism-identity.vercel.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -212,7 +212,7 @@ footer{position:relative}
 </head>
 <body>
 
-<div class="loading" id="loading"><div class="spinner"></div><p id="loadingMsg">저장 중...</p></div>
+<div class="loading" id="loading"><div class="spinner"></div><p id="loadingMsg">Saving...</p></div>
 
 <header>
   <div class="bar">
@@ -248,14 +248,14 @@ footer{position:relative}
       </g>
     </svg>
     <p class="eyebrow en" style="background:var(--sp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700">Uncover your blind spot.</p>
-    <h1 style="word-break:keep-all">당신 뒤에서<br>오가는 평가가 있습니다.</h1>
-    <p class="sub" style="margin-top:14px;font-size:19px">아직 모르고 있을 뿐.</p>
+    <h1 style="word-break:keep-all">There's an evaluation<br>happening behind your back.</h1>
+    <p class="sub" style="margin-top:14px;font-size:19px">You just don't know it yet.</p>
     <div class="hero-cta" style="margin-top:28px;flex-direction:column;align-items:center;gap:14px">
-      <button class="btn" style="background:var(--sp);border-color:transparent;color:#0C0C14;font-weight:800;width:100%;max-width:320px;padding:17px 30px;font-size:18px" onclick="startSelf()">내 팩폭 지수 확인하기 →</button>
-      <button class="bar-btn" style="font-size:15px;color:var(--t3)" onclick="go('inviteeLanding')">초대받았어요</button>
+      <button class="btn" style="background:var(--sp);border-color:transparent;color:#0C0C14;font-weight:800;width:100%;max-width:320px;padding:17px 30px;font-size:18px" onclick="startSelf()">Check my Fact-Bomb Index →</button>
+      <button class="bar-btn" style="font-size:15px;color:var(--t3)" onclick="go('inviteeLanding')">I was invited</button>
     </div>
     <p style="margin-top:24px;text-align:center">
-      <button class="bar-btn" style="font-size:13px;color:var(--t3)" onclick="loadAndShowFeedback()">모두의 한마디 보기 →</button>
+      <button class="bar-btn" style="font-size:13px;color:var(--t3)" onclick="loadAndShowFeedback()">See everyone's comments →</button>
     </p>
   </div>
 
@@ -265,39 +265,39 @@ footer{position:relative}
     <div class="teaser-card" id="teaserCard">
       <div class="teaser-types">
         <div>
-          <p class="teaser-type-lbl">내가 보는 나</p>
+          <p class="teaser-type-lbl">How I see myself</p>
           <div class="teaser-type-code" style="color:var(--accent)">ENT<span style="color:var(--line)">?</span></div>
         </div>
         <div style="align-self:center;font-family:Inter;font-size:13px;font-weight:700;color:var(--t3)">vs</div>
         <div style="text-align:right">
-          <p class="teaser-type-lbl">동료가 보는 나</p>
+          <p class="teaser-type-lbl">How a coworker sees me</p>
           <div class="teaser-type-code" style="color:#9CC9AE">EST<span style="color:var(--line)">?</span></div>
         </div>
       </div>
       <div class="teaser-gap-bar"><div class="teaser-gap-fill" id="teaserFill"></div></div>
-      <p class="teaser-caption">당신의 주장과 동료의 증언이 엇갈렸습니다</p>
-      <p style="font-size:13px;color:var(--t3);margin-top:6px;filter:blur(4px);user-select:none">3명의 친구가 이 결과에 동의했습니다</p>
+      <p class="teaser-caption">Your claim and your coworker's testimony don't line up</p>
+      <p style="font-size:13px;color:var(--t3);margin-top:6px;filter:blur(4px);user-select:none">3 friends agreed with this result</p>
     </div>
 
     <div class="teaser-mini-row">
       <div class="teaser-mini" style="position:relative">
-        <div class="teaser-mini-lbl">🎭 사회적 가면 두께</div>
+        <div class="teaser-mini-lbl">🎭 Social mask thickness</div>
         <div class="teaser-mini-val" style="color:var(--accent)">72%</div>
-        <div class="teaser-mini-sub">회사 페르소나</div>
+        <div class="teaser-mini-sub">Work persona</div>
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px">🔒</div>
       </div>
       <div class="teaser-mini" style="position:relative">
-        <div class="teaser-mini-lbl">💡 가장 당신다운 관계</div>
-        <div class="teaser-mini-val" style="color:#9CC9AE">친구</div>
-        <div class="teaser-mini-sub">친밀도 4.8 / 5</div>
+        <div class="teaser-mini-lbl">💡 Where you're most yourself</div>
+        <div class="teaser-mini-val" style="color:#9CC9AE">Friend</div>
+        <div class="teaser-mini-sub">Closeness 4.8 / 5</div>
         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px">🔒</div>
       </div>
     </div>
 
     <div class="pull-quote" style="margin-top:20px">
-      <p>"나는 직관형인 줄 알았는데,<br>동료들은 나를 현실형으로 봤습니다."</p>
+      <p>"I thought I was the Intuitive type,<br>but my coworkers see me as Sensing."</p>
     </div>
-    <p style="text-align:center;font-size:13px;color:var(--t3);margin-top:20px">지금까지 <strong style="color:var(--ink);font-weight:700">1,200명 이상</strong>이 자신의 팩폭 지수를 확인했습니다</p>
+    <p style="text-align:center;font-size:13px;color:var(--t3);margin-top:20px">So far, <strong style="color:var(--ink);font-weight:700">over 1,200 people</strong> have checked their Fact-Bomb Index</p>
   </div>
 
   <!-- How it works -->
@@ -306,19 +306,19 @@ footer{position:relative}
     <div>
       <div class="how-step">
         <span class="how-num">01</span>
-        <div><strong>나를 먼저 검사한다</strong><p>16문항으로 내가 보는 나를 기록합니다. 약 3분.</p></div>
+        <div><strong>Test yourself first</strong><p>Record how you see yourself with 16 questions. About 3 minutes.</p></div>
       </div>
       <div class="how-step">
         <span class="how-num">02</span>
-        <div><strong>증인을 소환한다</strong><p>친구·연인·동료에게 링크를 보냅니다. 8문항, 익명 보장.</p></div>
+        <div><strong>Summon your witnesses</strong><p>Send the link to friends, partners, family, coworkers. 8 questions, anonymous.</p></div>
       </div>
       <div class="how-step">
         <span class="how-num">03</span>
-        <div><strong>팩폭이 날아온다</strong><p>관계마다 달라지는 내 모습과 숨겨진 블라인드 스팟이 공개됩니다.</p></div>
+        <div><strong>The fact-bomb arrives</strong><p>See how you show up differently across relationships, and uncover your hidden blind spots.</p></div>
       </div>
     </div>
     <div style="margin-top:32px;text-align:center">
-      <button class="btn" style="background:var(--sp);border-color:transparent;color:#0C0C14;font-weight:800;width:100%;max-width:320px;padding:16px 30px;font-size:17px" onclick="startSelf()">지금 시작하기 →</button>
+      <button class="btn" style="background:var(--sp);border-color:transparent;color:#0C0C14;font-weight:800;width:100%;max-width:320px;padding:16px 30px;font-size:17px" onclick="startSelf()">Start now →</button>
     </div>
   </div>
 
@@ -328,23 +328,23 @@ footer{position:relative}
 <section class="screen" id="inviteeLanding">
   <div class="wrap test-screen">
     <p class="eyebrow en">Perspective</p>
-    <h2>누군가의 스펙트럼을<br>비춰주세요</h2>
-    <p class="sub">초대한 사람과의 관계를 선택하면 그에 맞는 8개 질문이 시작됩니다. 답변이 끝나면 <strong>응답 코드</strong>가 생성되어 초대한 사람에게 보낼 수 있어요.</p>
+    <h2>Shine a light on<br>someone's spectrum</h2>
+    <p class="sub">Choose your relationship to the person who invited you, and 8 matching questions will begin. When you finish, a <strong>response code</strong> is generated that you can send back to them.</p>
     <div class="rel-grid" id="relGrid"></div>
-    <button class="btn" id="inviteeStartBtn" disabled onclick="startObserver()">평가 시작하기</button>
+    <button class="btn" id="inviteeStartBtn" disabled onclick="startObserver()">Start evaluating</button>
   </div>
 </section>
 
 <!-- ════════════════ TEST ════════════════ -->
 <section class="screen" id="test">
   <div class="wrap test-screen">
-    <div class="context-badge"><span class="dot"></span><span id="modeBadge">자가 검사</span></div>
+    <div class="context-badge"><span class="dot"></span><span id="modeBadge">Self test</span></div>
     <p class="qnum en" id="qNum">1 / 16</p>
     <div class="prog-wrap"><div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div></div>
     <p class="q-text" id="qText"></p>
     <div class="likert" id="likert"></div>
     <div class="test-nav">
-      <button class="bar-btn" id="backBtn" onclick="prevQ()">← 이전</button>
+      <button class="bar-btn" id="backBtn" onclick="prevQ()">← Back</button>
       <span></span>
     </div>
   </div>
@@ -365,51 +365,51 @@ footer{position:relative}
     <div class="radar-wrap">
       <svg id="radarSelf" width="300" height="300" viewBox="-150 -150 300 300"></svg>
       <div class="radar-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--ink)"></div>내가 보는 나</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--ink)"></div>How I see myself</div>
       </div>
     </div>
 
     <div class="axes" id="selfAxes"></div>
 
     <hr class="rule">
-    <h2>이제 타인의 관점을 모아보세요</h2>
-    <p class="sub">친구·가족·연인·동료에게 링크를 공유하면 그들의 시선이 Identity Map에 쌓입니다.</p>
+    <h2>Now, gather others' perspectives</h2>
+    <p class="sub">Share the link with friends, family, partners, and coworkers — their views will build up your Identity Map.</p>
 
     <div class="card">
       <span class="step-pill en">STEP 1</span>
-      <h3>증인 소환하기</h3>
-      <p class="sub" style="margin-top:6px">링크를 받은 사람이 관계를 선택하고 8문항에 답합니다. 로그인 불필요. 익명 보장.</p>
-      <div class="code-box" id="inviteLinkBox">세션을 생성하는 중...</div>
+      <h3>Summon a witness</h3>
+      <p class="sub" style="margin-top:6px">Whoever gets the link picks a relationship and answers 8 questions. No login needed. Anonymous.</p>
+      <div class="code-box" id="inviteLinkBox">Creating session...</div>
       <div class="row">
-        <button class="ghost-sm" onclick="copyEl('inviteLinkBox',this)">증언 링크 복사</button>
-        <button class="ghost-sm" onclick="shareInvite()">증인 소환</button>
+        <button class="ghost-sm" onclick="copyEl('inviteLinkBox',this)">Copy testimony link</button>
+        <button class="ghost-sm" onclick="shareInvite()">Summon witness</button>
       </div>
     </div>
 
     <div class="card">
       <span class="step-pill en">STEP 2</span>
-      <h3>응답 코드 추가하기</h3>
-      <p class="sub" style="margin-top:6px">상대방이 보내준 응답 코드를 붙여넣으세요.</p>
-      <textarea class="paste-area" id="respInput" placeholder="PRISM. 으로 시작하는 응답 코드를 붙여넣으세요"></textarea>
-      <p class="err-msg" id="respErr">코드를 인식할 수 없어요. 전체 코드가 복사되었는지 확인해 주세요.</p>
+      <h3>Add a response code</h3>
+      <p class="sub" style="margin-top:6px">Paste the response code they sent you.</p>
+      <textarea class="paste-area" id="respInput" placeholder="Paste the response code starting with PRISM."></textarea>
+      <p class="err-msg" id="respErr">Couldn't recognize that code. Please check that the full code was copied.</p>
       <div class="row">
-        <button class="ghost-sm" onclick="addResponse()">관점 추가</button>
-        <button class="btn sm" id="toMapBtn" onclick="go('map')" disabled>Identity Map 보기</button>
+        <button class="ghost-sm" onclick="addResponse()">Add perspective</button>
+        <button class="btn sm" id="toMapBtn" onclick="go('map')" disabled>View Identity Map</button>
       </div>
-      <p class="muted" style="margin-top:12px" id="respCount">수집된 관점 0개 — 1개부터 지도를 볼 수 있어요</p>
+      <p class="muted" style="margin-top:12px" id="respCount">0 perspectives collected — the map unlocks at 1</p>
       <div class="reset-row">
-        <button class="danger-btn" onclick="resetResponses()">관점 초기화</button>
-        <button class="danger-btn" onclick="resetAll()">전체 초기화</button>
+        <button class="danger-btn" onclick="resetResponses()">Reset perspectives</button>
+        <button class="danger-btn" onclick="resetAll()">Reset everything</button>
       </div>
     </div>
 
     <div class="fb-inline-card" id="fbResultWrap">
       <p class="eyebrow en" style="margin-bottom:10px">Feedback</p>
-      <h3 style="margin-bottom:6px">한마디 남겨주세요</h3>
-      <p class="muted" style="margin-bottom:14px">솔직한 의견이 PRISM을 키웁니다</p>
-      <textarea class="paste-area" id="fbResultText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" style="min-height:88px"></textarea>
+      <h3 style="margin-bottom:6px">Leave a comment</h3>
+      <p class="muted" style="margin-bottom:14px">Honest feedback helps PRISM grow</p>
+      <textarea class="paste-area" id="fbResultText" placeholder="Write anything you like (max 200 characters)" maxlength="200" style="min-height:88px"></textarea>
       <div class="row" style="margin-top:10px">
-        <button class="btn sm" onclick="submitFeedbackFrom('fbResultText','fbResultWrap')">남기기</button>
+        <button class="btn sm" onclick="submitFeedbackFrom('fbResultText','fbResultWrap')">Submit</button>
       </div>
     </div>
   </div>
@@ -418,13 +418,13 @@ footer{position:relative}
 <!-- ════════════════ INTIMACY ════════════════ -->
 <section class="screen" id="intimacyScreen">
   <div class="wrap test-screen">
-    <div class="context-badge"><span class="dot"></span><span id="intimacyBadge">관찰자 평가</span></div>
-    <h2 style="margin-bottom:14px">마지막으로,<br>친밀도를 알려주세요</h2>
-    <p class="sub">이 분과 평소에 얼마나 가깝게 지내시나요?<br>친밀도는 결과 해석에만 쓰이며 상대방에게 전달되지 않아요.</p>
+    <div class="context-badge"><span class="dot"></span><span id="intimacyBadge">Observer evaluation</span></div>
+    <h2 style="margin-bottom:14px">Lastly,<br>tell us how close you are</h2>
+    <p class="sub">How close are you with this person normally?<br>Closeness is only used to interpret the results and won't be shown to them.</p>
     <div class="likert" id="intimacyOpts" style="margin-top:32px"></div>
     <div class="test-nav" style="margin-top:28px">
-      <button class="bar-btn" onclick="backToLastQ()">← 이전</button>
-      <button class="btn sm" id="intimacyNextBtn" disabled onclick="confirmIntimacy()">완료</button>
+      <button class="bar-btn" onclick="backToLastQ()">← Back</button>
+      <button class="btn sm" id="intimacyNextBtn" disabled onclick="confirmIntimacy()">Done</button>
     </div>
   </div>
 </section>
@@ -433,14 +433,14 @@ footer{position:relative}
 <section class="screen" id="observerDone">
   <div class="wrap result-screen">
     <p class="eyebrow en">Done</p>
-    <h2>관점이 기록되었습니다 ✓</h2>
-    <p class="sub">아래 응답 코드를 초대한 사람에게 보내주세요. 코드에는 답변 요약만 담기며, 누가 답했는지는 표시되지 않아요.</p>
+    <h2>Your perspective has been recorded ✓</h2>
+    <p class="sub">Send the response code below to the person who invited you. It only contains a summary of your answers — it won't show who answered.</p>
     <div class="code-box" id="respCodeBox"></div>
     <div class="row" style="margin-top:16px">
-      <button class="ghost-sm" onclick="copyEl('respCodeBox',this)">코드 복사</button>
-      <button class="btn sm" onclick="startSelf()">나도 해보기</button>
+      <button class="ghost-sm" onclick="copyEl('respCodeBox',this)">Copy code</button>
+      <button class="btn sm" onclick="startSelf()">Try it myself</button>
     </div>
-    <p class="muted" style="margin-top:20px">응답이 Supabase에 저장되었어요. 초대한 사람이 코드를 붙여넣으면 Identity Map에 바로 반영됩니다.</p>
+    <p class="muted" style="margin-top:20px">Your response has been saved to Supabase. Once the person who invited you pastes the code, it'll show up in their Identity Map right away.</p>
   </div>
 </section>
 
@@ -448,8 +448,8 @@ footer{position:relative}
 <section class="screen" id="map">
   <div class="wrap map-screen">
     <p class="eyebrow en">Identity Map</p>
-    <h1 style="font-size:clamp(26px,5.5vw,36px)">당신의 정체성 구조</h1>
-    <p class="sub">하나의 유형이 아니라, 관계마다 다르게 굴절되는 스펙트럼입니다.</p>
+    <h1 style="font-size:clamp(26px,5.5vw,36px)">Your Identity Structure</h1>
+    <p class="sub">Not a single type, but a spectrum that refracts differently through each relationship.</p>
 
     <div id="fakpokMap" style="display:none;margin-top:24px"></div>
     <div class="persona-grid" id="personaGrid"></div>
@@ -460,32 +460,32 @@ footer{position:relative}
     </div>
 
     <p class="section-title">Persona Gap Index</p>
-    <p class="muted">자기 인식과 타인 평균의 차이를 축별로 보여줍니다.</p>
+    <p class="muted">Shows the gap between your self-perception and others' average, axis by axis.</p>
     <div class="gap-index" id="gapIndex"></div>
 
-    <p class="section-title">관계별 시선 — Blind Spot</p>
+    <p class="section-title">Perspective by Relationship — Blind Spot</p>
     <div class="insight-block" id="blindSpot"></div>
 
-    <p class="section-title">가면 지수 — Authenticity Map</p>
-    <p class="muted">친밀도와 인식 차이를 결합해 어느 관계에서 가장 당신답게 있는지 보여줍니다.</p>
+    <p class="section-title">Mask Index — Authenticity Map</p>
+    <p class="muted">Combines closeness with perception gaps to show which relationship you're most authentically yourself in.</p>
     <div id="maskIndex"></div>
 
     <p class="section-title">Persona Shift</p>
     <div class="insight-block" id="personaShift"></div>
 
     <hr class="rule">
-    <div class="insight-block" style="background:transparent;border:1.5px solid var(--line)">이들은 서로 다른 사람이 아닙니다. 모두 <strong>당신이라는 하나의 정체성</strong>이 각 관계 안에서 표현되는 방식입니다.</div>
+    <div class="insight-block" style="background:transparent;border:1.5px solid var(--line)">These aren't different people. They're all ways that <strong>one identity — you</strong> — is expressed within each relationship.</div>
     <div class="row" style="margin-top:28px">
-      <button class="ghost-sm" onclick="go('result')">← 관점 더 추가하기</button>
+      <button class="ghost-sm" onclick="go('result')">← Add more perspectives</button>
     </div>
 
     <div class="fb-inline-card" id="fbMapWrap">
       <p class="eyebrow en" style="margin-bottom:10px">Feedback</p>
-      <h3 style="margin-bottom:6px">한마디 남겨주세요</h3>
-      <p class="muted" style="margin-bottom:14px">지도를 다 보셨나요? 솔직한 의견이 PRISM을 키웁니다</p>
-      <textarea class="paste-area" id="fbMapText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" style="min-height:88px"></textarea>
+      <h3 style="margin-bottom:6px">Leave a comment</h3>
+      <p class="muted" style="margin-bottom:14px">Finished exploring the map? Honest feedback helps PRISM grow</p>
+      <textarea class="paste-area" id="fbMapText" placeholder="Write anything you like (max 200 characters)" maxlength="200" style="min-height:88px"></textarea>
       <div class="row" style="margin-top:10px">
-        <button class="btn sm" onclick="submitFeedbackFrom('fbMapText','fbMapWrap')">남기기</button>
+        <button class="btn sm" onclick="submitFeedbackFrom('fbMapText','fbMapWrap')">Submit</button>
       </div>
     </div>
   </div>
@@ -494,16 +494,16 @@ footer{position:relative}
 <!-- ════════════════ FEEDBACK VIEW ════════════════ -->
 <section class="screen" id="feedbackView">
   <div class="wrap" style="padding-top:52px;padding-bottom:96px">
-    <button class="bar-btn" onclick="go('home')" style="margin-bottom:28px;display:inline-block">← 홈으로</button>
+    <button class="bar-btn" onclick="go('home')" style="margin-bottom:28px;display:inline-block">← Home</button>
     <p class="eyebrow en">Community</p>
-    <h2 style="margin-top:6px">모두의 한마디</h2>
-    <p class="sub" style="margin-bottom:32px">PRISM을 경험한 사람들의 이야기입니다.</p>
+    <h2 style="margin-top:6px">Everyone's comments</h2>
+    <p class="sub" style="margin-bottom:32px">Stories from people who've experienced PRISM.</p>
 
     <div class="fb-inline-card" id="fbViewWrap">
-      <h3 style="margin-bottom:10px">한마디 남기기</h3>
-      <textarea class="paste-area" id="fbViewText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" style="min-height:88px"></textarea>
+      <h3 style="margin-bottom:10px">Leave a comment</h3>
+      <textarea class="paste-area" id="fbViewText" placeholder="Write anything you like (max 200 characters)" maxlength="200" style="min-height:88px"></textarea>
       <div class="row" style="margin-top:10px">
-        <button class="btn sm" onclick="submitFeedbackFrom('fbViewText','fbViewWrap',true)">남기기</button>
+        <button class="btn sm" onclick="submitFeedbackFrom('fbViewText','fbViewWrap',true)">Submit</button>
       </div>
     </div>
 
@@ -516,20 +516,20 @@ footer{position:relative}
 <div class="fb-sheet" id="fbSheet">
   <div class="fb-handle"></div>
   <p class="eyebrow en" style="text-align:center;margin-bottom:14px">Feedback</p>
-  <h2 style="text-align:center;font-size:22px;margin-bottom:8px">한마디 남겨주세요</h2>
-  <p class="muted" style="text-align:center;margin-bottom:20px">솔직한 의견이 PRISM을 키웁니다</p>
-  <textarea class="paste-area" id="fbText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" oninput="$('fbCount').textContent=this.value.length" style="min-height:100px"></textarea>
+  <h2 style="text-align:center;font-size:22px;margin-bottom:8px">Leave a comment</h2>
+  <p class="muted" style="text-align:center;margin-bottom:20px">Honest feedback helps PRISM grow</p>
+  <textarea class="paste-area" id="fbText" placeholder="Write anything you like (max 200 characters)" maxlength="200" oninput="$('fbCount').textContent=this.value.length" style="min-height:100px"></textarea>
   <div style="text-align:right;font-size:13px;color:var(--t3);margin-top:6px"><span id="fbCount">0</span> / 200</div>
-  <p class="err-msg" id="fbErr" style="margin-top:8px">잠시 후 다시 시도해 주세요.</p>
+  <p class="err-msg" id="fbErr" style="margin-top:8px">Please try again in a moment.</p>
   <div style="display:flex;gap:10px;margin-top:16px">
-    <button class="btn ghost" style="flex:1" onclick="closeFeedback()">닫기</button>
-    <button class="btn" style="flex:2" id="fbSubmitBtn" onclick="submitFeedback()">남기기</button>
+    <button class="btn ghost" style="flex:1" onclick="closeFeedback()">Close</button>
+    <button class="btn" style="flex:2" id="fbSubmitBtn" onclick="submitFeedback()">Submit</button>
   </div>
 </div>
 
 <footer class="en">
   DISCOVER YOUR HIDDEN SPECTRUM &nbsp;·&nbsp; by JKwon 2026
-  <button class="fb-trigger" onclick="openFeedback()">한마디 남기기</button>
+  <button class="fb-trigger" onclick="openFeedback()">Leave a comment</button>
 </footer>
 
 <script>
@@ -544,113 +544,113 @@ const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 ═══════════════════════════════════════════ */
 const AXES = ['EI','SN','TF','JP'];
 const AXIS_INFO = {
-  EI:{L:'E 외향',R:'I 내향',names:['외향','내향'],radarL:'외향',radarR:'내향'},
-  SN:{L:'S 현실',R:'N 직관',names:['현실','직관'],radarL:'현실',radarR:'직관'},
-  TF:{L:'T 사고',R:'F 감정',names:['사고','감정'],radarL:'사고',radarR:'감정'},
-  JP:{L:'J 계획',R:'P 유연',names:['계획','유연'],radarL:'계획',radarR:'유연'},
+  EI:{L:'E Extravert',R:'I Introvert',names:['Extravert','Introvert'],radarL:'Extravert',radarR:'Introvert'},
+  SN:{L:'S Sensing',R:'N Intuition',names:['Sensing','Intuition'],radarL:'Sensing',radarR:'Intuition'},
+  TF:{L:'T Thinking',R:'F Feeling',names:['Thinking','Feeling'],radarL:'Thinking',radarR:'Feeling'},
+  JP:{L:'J Judging',R:'P Perceiving',names:['Judging','Perceiving'],radarL:'Judging',radarR:'Perceiving'},
 };
-const TYPE_WORDS = {E:'외향적 에너지',I:'내면의 깊이',S:'현실 감각',N:'가능성 직관',T:'논리적 사고',F:'감정적 공감',J:'체계적 계획',P:'유연한 흐름'};
+const TYPE_WORDS = {E:'extraverted energy',I:'inner depth',S:'grounded realism',N:'intuitive possibility',T:'logical thinking',F:'empathetic feeling',J:'systematic planning',P:'flexible flow'};
 const REL_META = {
-  friend: {icon:'👥',name:'친구',hint:'소셜 관계'},
-  family: {icon:'🏠',name:'가족',hint:'가장 가까운'},
-  partner:{icon:'💛',name:'연인',hint:'친밀한 관계'},
-  coworker:{icon:'💼',name:'동료',hint:'직장 페르소나'},
+  friend: {icon:'👥',name:'Friend',hint:'Social circle'},
+  family: {icon:'🏠',name:'Family',hint:'Closest to you'},
+  partner:{icon:'💛',name:'Partner',hint:'Intimate relationship'},
+  coworker:{icon:'💼',name:'Coworker',hint:'Work persona'},
 };
 const REL_COLORS = {self:'#EEEEF4',friend:'#38BEFF',family:'#3DECA0',partner:'#FF8C5A',coworker:'#C084FC'};
 
 // Self: 16 questions (4 per axis)
 const SELF_Q = [
   // EI
-  {a:'EI',p:'E',q:'사람들과 어울리고 나면 오히려 에너지가 충전된다'},
-  {a:'EI',p:'E',q:'생각이 복잡할 때 혼자 끙끙대기보다 남들에게 말하면서 정리하는 편이다'},
-  {a:'EI',p:'I',q:'하루 중 혼자 있는 시간이 없으면 피로가 쌓인다'},
-  {a:'EI',p:'I',q:'전화벨이 울리면 바로 받기보다 왜 걸었지 먼저 생각하는 편이다'},
+  {a:'EI',p:'E',q:'After spending time with people, I actually feel recharged rather than drained.'},
+  {a:'EI',p:'E',q:'When my thoughts get tangled, I tend to sort them out by talking to others rather than mulling it over alone.'},
+  {a:'EI',p:'I',q:'If I get no alone time at all during the day, I end up feeling worn out.'},
+  {a:'EI',p:'I',q:'When the phone rings, I tend to wonder why they’re calling before picking up, rather than answering right away.'},
   // SN
-  {a:'SN',p:'N',q:'영화를 볼 때 줄거리보다 숨겨진 의미나 복선을 추리하는 것을 즐기는 편이다'},
-  {a:'SN',p:'S',q:'무언가를 조립할 때 감으로 하기보다 설명서의 순서를 그대로 따르는 편이다'},
-  {a:'SN',p:'N',q:'멍 때릴 때 일상적인 고민보다 아예 현실성 없는 상상에 자주 빠지는 편이다'},
-  {a:'SN',p:'S',q:'길을 설명할 때 "큰 은행 건물에서 오른쪽"처럼 눈에 보이는 기준으로 말하는 편이다'},
+  {a:'SN',p:'N',q:'When watching a movie, I enjoy piecing together hidden meaning or foreshadowing more than just following the plot.'},
+  {a:'SN',p:'S',q:'When assembling something, I tend to follow the instructions step by step rather than going by feel.'},
+  {a:'SN',p:'N',q:'When zoning out, I tend to drift into completely unrealistic daydreams rather than everyday worries.'},
+  {a:'SN',p:'S',q:'When giving directions, I tend to use visible landmarks, like "turn right at the big bank building."'},
   // TF
-  {a:'TF',p:'T',q:'슬픈 사연을 들을 때, 슬퍼하기 전에 "근데 저게 현실적으로 말이 되나?"를 먼저 따지는 편이다'},
-  {a:'TF',p:'T',q:'친구가 살찐 것 같다고 하면, 위로보다는 팩트나 다이어트 팁을 먼저 말해주는 편이다'},
-  {a:'TF',p:'F',q:'내 말이 아무리 맞아도 상대방이 너무 상처받은 것 같으면 먼저 굽혀주는 편이다'},
-  {a:'TF',p:'F',q:'속으로 동의하지 않는 이야기라도 겉으로는 "맞아", "진짜?"라며 리액션을 잘 해주는 편이다'},
+  {a:'TF',p:'T',q:'When I hear a sad story, I tend to think "but does that actually make sense?" before I feel sad about it.'},
+  {a:'TF',p:'T',q:'If a friend says they think they’ve gained weight, I tend to offer facts or diet tips before comforting them.'},
+  {a:'TF',p:'F',q:'Even when I’m clearly right, if the other person seems really hurt, I tend to back down first.'},
+  {a:'TF',p:'F',q:'Even when I privately disagree, I tend to react outwardly with "right," "really?" and the like.'},
   // JP
-  {a:'JP',p:'P',q:'마트나 쇼핑을 갈 때 살 것을 미리 적어가기보다 현장에서 끌리는 대로 사는 편이다'},
-  {a:'JP',p:'J',q:'여행 전날, 출발부터 도착까지의 전체 동선을 머릿속으로 미리 시뮬레이션해 보는 편이다'},
-  {a:'JP',p:'P',q:'마감 직전의 압박감을 원동력 삼아 벼락치기로 끝내는 것이 잘 맞는 편이다'},
-  {a:'JP',p:'J',q:'스마트폰 앱 알림이나 안 읽은 메시지의 빨간 숫자를 보면 거슬려서 다 지우는 편이다'},
+  {a:'JP',p:'P',q:'When grocery shopping, I tend to buy whatever catches my eye on the spot rather than writing a list beforehand.'},
+  {a:'JP',p:'J',q:'The night before a trip, I tend to mentally simulate the whole route from departure to arrival in advance.'},
+  {a:'JP',p:'P',q:'I tend to work best cramming everything at the last minute, using deadline pressure as fuel.'},
+  {a:'JP',p:'J',q:'Red notification badges or unread-message counts on my phone bother me, so I tend to clear them all.'},
 ];
 
 // Observer questions by relationship (8 each)
 const OBS_Q = {
   friend:[
-    {a:'EI',p:'E',q:'이 친구는 모임에서 침묵이 길어지면 참지 못하고 먼저 아무 말이나 꺼내는 편이다'},
-    {a:'EI',p:'I',q:'이 친구는 시끌벅적한 단톡방에서 주로 읽기만 하거나 필요할 때만 짧게 대답하는 편이다'},
-    {a:'SN',p:'N',q:'이 친구는 대화 중에 "만약에~"라는 가정을 자주 하거나 엉뚱한 주제로 잘 넘어가는 편이다'},
-    {a:'SN',p:'S',q:'이 친구는 예전 모임에서 있었던 사소한 팩트나 디테일을 아주 정확하게 기억해 내는 편이다'},
-    {a:'TF',p:'T',q:'이 친구한테 고민을 털어놓으면, 편을 들어주기보다 뼈 때리는 현실 조언이 먼저 날아온다'},
-    {a:'TF',p:'F',q:'이 친구는 다른 사람의 미세한 기분 변화를 눈치채고 조용히 챙겨주는 편이다'},
-    {a:'JP',p:'P',q:'모임 약속이 갑자기 바뀌어도 이 친구는 불평 없이 "거기도 좋아~"라며 쉽게 맞춰주는 편이다'},
-    {a:'JP',p:'J',q:'우리끼리 놀러 갈 때 이 친구는 장소 예약이나 일정, 동선을 주도적으로 정리하는 편이다'},
+    {a:'EI',p:'E',q:'When a silence drags on at a gathering, this friend can’t stand it and tends to be the first to say something.'},
+    {a:'EI',p:'I',q:'In a busy group chat, this friend tends to mostly just read, or reply briefly only when needed.'},
+    {a:'SN',p:'N',q:'This friend often floats "what if..." hypotheticals in conversation or drifts into random tangents.'},
+    {a:'SN',p:'S',q:'This friend tends to remember tiny facts or details from past get-togethers with striking accuracy.'},
+    {a:'TF',p:'T',q:'When you vent to this friend, blunt, cutting-to-the-bone advice comes flying before any taking of sides.'},
+    {a:'TF',p:'F',q:'This friend tends to notice other people’s subtle mood shifts and quietly look out for them.'},
+    {a:'JP',p:'P',q:'Even when plans suddenly change, this friend tends to go along with it easily, saying "that works too" without complaint.'},
+    {a:'JP',p:'J',q:'When we go out together, this friend tends to take charge of booking places and organizing the schedule and route.'},
   ],
   family:[
-    {a:'EI',p:'E',q:'외출 후 집에 돌아오면 이 사람은 밖에서 있었던 일을 가족들에게 신나게 먼저 풀어놓는 편이다'},
-    {a:'EI',p:'I',q:'집에 친척이나 손님이 오면 처음엔 반기다가, 시간이 지나면 어느새 자기 방으로 들어가 있는 편이다'},
-    {a:'SN',p:'N',q:'이 사람은 비용이나 현실성은 좀 떨어져도 스케일 크고 희망찬 상상을 자주 말하는 편이다'},
-    {a:'SN',p:'S',q:'이사나 가전 구매 등 집안일을 결정할 때 이 사람은 비용과 조건을 가장 꼼꼼하고 현실적으로 따진다'},
-    {a:'TF',p:'T',q:'이 사람은 가족에게 잔소리할 때 돌려 말하지 않고 팩트만 직설적으로 말하는 편이다'},
-    {a:'TF',p:'F',q:'가족 중 누군가 밖에서 억울한 일을 당해 오면, 이 사람은 잘잘못을 따지기 전에 무조건 같이 화내준다'},
-    {a:'JP',p:'P',q:'이 사람의 방이나 물건이 다소 어질러져 있어도 본인만의 룰이 있어 크게 불편해하지 않는 편이다'},
-    {a:'JP',p:'J',q:'가족 여행을 가면 이 사람은 앞장서서 가이드처럼 일정을 짜고 짐을 철저히 챙겨야 마음이 편하다'},
+    {a:'EI',p:'E',q:'After coming home from being out, this person tends to excitedly tell the family everything that happened first.'},
+    {a:'EI',p:'I',q:'When relatives or guests visit, this person greets them warmly at first, but before long tends to slip off to their own room.'},
+    {a:'SN',p:'N',q:'This person often talks about big, hopeful ideas, even when the cost or practicality is a bit shaky.'},
+    {a:'SN',p:'S',q:'When deciding household matters like moving or buying appliances, this person weighs the cost and conditions the most carefully and realistically.'},
+    {a:'TF',p:'T',q:'When nagging family members, this person tends to skip the sugarcoating and state the facts bluntly.'},
+    {a:'TF',p:'F',q:'If someone in the family comes home wronged by something out there, this person gets angry alongside them first, before sorting out who was right.'},
+    {a:'JP',p:'P',q:'Even if this person’s room or belongings are a bit messy, they have their own system and don’t mind much.'},
+    {a:'JP',p:'J',q:'On family trips, this person only feels at ease after taking the lead like a guide — planning the itinerary and packing thoroughly.'},
   ],
   partner:[
-    {a:'EI',p:'E',q:'이 사람은 연인 외에도 다양한 사람들과 자주 어울리고 싶어하는 편이다'},
-    {a:'EI',p:'I',q:'밖에서 데이트를 오래 하면 이 사람은 눈이 풀리고 급격히 조용해지는 방전 타이밍이 온다'},
-    {a:'SN',p:'S',q:'데이트 장소를 고를 때 이 사람은 분위기보다 주차, 동선, 가성비 등 현실적인 조건을 먼저 따진다'},
-    {a:'SN',p:'N',q:'같이 멍때릴 때 "내가 만약에 좀비가 되면 어떡할 거야?" 같은 과몰입 질문을 자주 하는 편이다'},
-    {a:'TF',p:'T',q:'다퉜다가 화해할 때, 이 사람은 단순한 미안함보다 "앞으로 어떻게 고칠 건지"를 더 중요하게 여긴다'},
-    {a:'TF',p:'F',q:'내가 힘든 하루를 보내고 오면 이 사람은 상황을 묻기보다 먼저 따뜻하게 기분을 다독여준다'},
-    {a:'JP',p:'J',q:'가려던 데이트 맛집이 예고 없이 문을 닫으면 이 사람은 눈에 띄게 크게 당황하거나 스트레스받는다'},
-    {a:'JP',p:'P',q:'이 사람은 기념일 데이트를 한참 전부터 철저히 예약하기보다 임박해서 유연하게 준비하는 편이다'},
+    {a:'EI',p:'E',q:'This person tends to want to spend time with lots of different people, not just their partner.'},
+    {a:'EI',p:'I',q:'After a long date out, this person’s eyes glaze over and they suddenly go quiet — they hit a point of feeling drained.'},
+    {a:'SN',p:'S',q:'When picking a date spot, this person weighs practical things like parking, route, and value for money before the atmosphere.'},
+    {a:'SN',p:'N',q:'While zoning out together, this person often asks over-the-top hypotheticals like "what would you do if I turned into a zombie?"'},
+    {a:'TF',p:'T',q:'When making up after a fight, this person cares more about "how we’ll fix it going forward" than simply saying sorry.'},
+    {a:'TF',p:'F',q:'When you’ve had a rough day, this person tends to comfort your feelings warmly first, before asking what happened.'},
+    {a:'JP',p:'J',q:'If a restaurant you planned to go to suddenly closes with no notice, this person gets visibly flustered or stressed.'},
+    {a:'JP',p:'P',q:'For anniversary dates, this person tends to prepare flexibly at the last minute rather than booking everything well in advance.'},
   ],
   coworker:[
-    {a:'EI',p:'E',q:'이 동료는 회의에서 먼저 의견을 내는 편이다'},
-    {a:'EI',p:'I',q:'이 동료는 큰 그룹 회의보다 소규모 또는 1:1 대화에서 더 적극적으로 참여한다'},
-    {a:'SN',p:'S',q:'이 동료의 업무 방식은 현실적이고 검증된 방법 중심이다'},
-    {a:'SN',p:'N',q:'이 동료는 새로운 아이디어와 개선 방안을 자주 제안한다'},
-    {a:'TF',p:'T',q:'팀원이 업무 고민을 털어놓으면, 이 동료는 공감보다 실질적인 해결책을 먼저 제시하는 편이다'},
-    {a:'TF',p:'F',q:'팀 내 의견 충돌이 생기면, 이 동료는 논리적 결론보다 서로 감정이 상하지 않게 조율하려 한다'},
-    {a:'JP',p:'J',q:'이 동료는 업무에 변수가 생기면 즉시 새로운 구조와 계획을 재수립하려 한다'},
-    {a:'JP',p:'P',q:'이 동료는 프로세스보다 최종 결과에 집중하며, 방법은 상황에 맞게 유연하게 택한다'},
+    {a:'EI',p:'E',q:'This coworker tends to speak up first in meetings.'},
+    {a:'EI',p:'I',q:'This coworker participates more actively in small-group or one-on-one conversations than in large meetings.'},
+    {a:'SN',p:'S',q:'This coworker’s way of working centers on practical, proven methods.'},
+    {a:'SN',p:'N',q:'This coworker often proposes new ideas and ways to improve things.'},
+    {a:'TF',p:'T',q:'When a teammate shares a work worry, this coworker tends to offer a practical solution before sympathy.'},
+    {a:'TF',p:'F',q:'When conflicts arise on the team, this coworker tries to smooth things over so no one’s feelings get hurt, more than reaching the most logical conclusion.'},
+    {a:'JP',p:'J',q:'When something unexpected comes up at work, this coworker immediately tries to rebuild a new structure and plan.'},
+    {a:'JP',p:'P',q:'This coworker focuses on the end result over process, choosing methods flexibly as the situation demands.'},
   ],
 };
-const LIKERT = ['전혀 그렇지 않다','그렇지 않은 편','보통이다','그런 편이다','매우 그렇다'];
+const LIKERT = ['Strongly disagree','Somewhat disagree','Neutral','Somewhat agree','Strongly agree'];
 const NICKNAMES = {
-  ENTJ:{self:'지휘관형 전략가',friend:'술자리 전략기획본부장',family:'가족 회의 총괄 PM',partner:'연애도 기획하는 사람',coworker:'회의실 총사령관'},
-  INTJ:{self:'독립형 설계자',friend:'말 아끼는 통찰자',family:'거리를 두는 관찰자',partner:'감정보다 로직형 연인',coworker:'보고서 한 줄 독재자'},
-  ENTP:{self:'토론형 발상가',friend:'논쟁 일으키는 아이디어봇',family:'왜냐면을 입에 달고 사는 사람',partner:'연애도 실험처럼 하는 사람',coworker:'회의 분위기 뒤집는 사람'},
-  INTP:{self:'분석형 사색가',friend:'갑자기 심오해지는 친구',family:'혼자 있고 싶은 가족',partner:'감정 표현 번역이 필요한 사람',coworker:'왜 되는지 끝까지 파고드는 사람'},
-  ESTJ:{self:'현실형 관리자',friend:'약속 시간 감시자',family:'가족 규칙 제정위원장',partner:'사랑도 체크리스트로 하는 사람',coworker:'일정 독재자'},
-  ISTJ:{self:'원칙형 실행자',friend:'조용히 약속 지키는 사람',family:'집안의 든든한 기둥',partner:'말보다 행동으로 사랑하는 사람',coworker:'전례 없으면 안 된다는 사람'},
-  ESFJ:{self:'관계형 조력자',friend:'챙겨주는 게 숨쉬기인 사람',family:'집안 분위기 조성가',partner:'애정 과잉 공급자',coworker:'팀 분위기 관리 담당'},
-  ISFJ:{self:'헌신형 수호자',friend:'말은 없지만 제일 챙겨주는 사람',family:'조용한 가족 접착제',partner:'배려가 공기인 연인',coworker:'뒤에서 다 처리하는 사람'},
-  ENFJ:{self:'영향력형 리더',friend:'모두를 끌어안는 친구',family:'가족 감정 수렴창구',partner:'당신의 성장을 바라는 연인',coworker:'팀 동기부여 총괄'},
-  INFJ:{self:'통찰형 조언자',friend:'한 명을 깊이 아는 친구',family:'말 없이 알아채는 가족',partner:'영혼 연결을 원하는 연인',coworker:'조용한 비전 설계자'},
-  ENFP:{self:'열정형 활동가',friend:'새벽에 아이디어 보내는 친구',family:'집안 에너지 공급원',partner:'설렘 제조기',coworker:'회의 분위기 띄우는 사람'},
-  INFP:{self:'이상형 중재자',friend:'감성 채널 맞는 영혼 친구',family:'조용히 예민한 가족',partner:'감정의 깊이를 요구하는 연인',coworker:'가치관 안 맞으면 못 버티는 사람'},
-  ESTP:{self:'행동형 탐험가',friend:'지금 당장 뭔가 하자는 친구',family:'집안 행동 개시 버튼',partner:'지루함을 허용하지 않는 연인',coworker:'말보다 실행이 먼저인 사람'},
-  ISTP:{self:'관찰형 장인',friend:'말은 적지만 손은 빠른 친구',family:'필요할 때 나타나는 가족',partner:'현실로 사랑하는 사람',coworker:'문제 생기면 조용히 고치는 사람'},
-  ESFP:{self:'자유형 엔터테이너',friend:'단톡방 분위기 메이커',family:'집안 웃음 담당',partner:'순간에 충실한 연인',coworker:'회의 딱딱한 거 못 참는 사람'},
-  ISFP:{self:'감각형 예술가',friend:'조용히 배려하는 친구',family:'말 없이 분위기 읽는 가족',partner:'말보다 눈빛으로 사랑하는 사람',coworker:'디테일에 진심인 사람'},
+  ENTJ:{self:'The Commander Strategist',friend:'Head of Drinks-Night Strategic Planning',family:'Family Meeting Project Manager',partner:'The one who plans out the relationship too',coworker:'Supreme Commander of the Conference Room'},
+  INTJ:{self:'The Independent Architect',friend:'The sparing-with-words insight-giver',family:'The distant observer',partner:'The logic-over-feelings partner',coworker:'The one-line-report dictator'},
+  ENTP:{self:'The Debating Idea-Generator',friend:'The argument-starting idea bot',family:'The one who always says "because..."',partner:'The one who treats dating like an experiment',coworker:'The meeting mood-flipper'},
+  INTP:{self:'The Analytical Thinker',friend:'The friend who suddenly gets deep',family:'The family member who wants to be alone',partner:'The one whose feelings need a translator',coworker:'The one who digs until they know why'},
+  ESTJ:{self:'The Practical Manager',friend:'The punctuality enforcer',family:'Chair of the family rules committee',partner:'The one who loves by checklist',coworker:'The schedule dictator'},
+  ISTJ:{self:'The Principled Executor',friend:'The quiet promise-keeper',family:'The family’s steady pillar',partner:'The one who loves through actions, not words',coworker:'The "no precedent, no go" person'},
+  ESFJ:{self:'The Relationship-Oriented Helper',friend:'The one for whom caretaking is like breathing',family:'The household mood-setter',partner:'The over-supplier of affection',coworker:'The team morale officer'},
+  ISFJ:{self:'The Devoted Guardian',friend:'The quiet one who cares the most',family:'The quiet glue of the family',partner:'The partner for whom consideration is like air',coworker:'The one who handles everything behind the scenes'},
+  ENFJ:{self:'The Influential Leader',friend:'The friend who embraces everyone',family:'The family’s emotional switchboard',partner:'The partner who wants you to grow',coworker:'Head of team motivation'},
+  INFJ:{self:'The Insightful Advisor',friend:'The friend who knows one person deeply',family:'The family member who notices without a word',partner:'The partner who wants a soul-deep connection',coworker:'The quiet vision architect'},
+  ENFP:{self:'The Passionate Activist',friend:'The friend who texts ideas at 4am',family:'The household’s energy source',partner:'The butterflies-in-your-stomach machine',coworker:'The meeting hype-person'},
+  INFP:{self:'The Idealistic Mediator',friend:'The soul friend on your emotional wavelength',family:'The quietly sensitive family member',partner:'The partner who needs emotional depth',coworker:'The one who can’t stay if values clash'},
+  ESTP:{self:'The Action-Oriented Explorer',friend:'The friend who says "let’s do something, now"',family:'The household’s action-starter button',partner:'The partner who won’t allow boredom',coworker:'The one who acts before they talk'},
+  ISTP:{self:'The Observant Craftsman',friend:'The friend who talks little but fixes fast',family:'The family member who shows up when needed',partner:'The one who loves in practical, real terms',coworker:'The one who quietly fixes the problem'},
+  ESFP:{self:'The Free-Spirited Entertainer',friend:'The group-chat mood-maker',family:'The household’s resident comedian',partner:'The partner who lives fully in the moment',coworker:'The one who can’t stand a stiff meeting'},
+  ISFP:{self:'The Sensory Artist',friend:'The quietly considerate friend',family:'The family member who reads the room without words',partner:'The one who loves with a look, not words',coworker:'The one who’s truly serious about details'},
 };
 const GAP_NAMES = {
-  EI:{big:'사회적 배터리 왜곡',small:'에너지 방향 일치'},
-  SN:{big:'큰그림 vs 현실감각 충돌',small:'현실 감각 일치'},
-  TF:{big:'차가운 친절 지수 발동',small:'감정 표현 인식 일치'},
-  JP:{big:'계획 인간 오해도 상승',small:'흐름 감각 일치'},
+  EI:{big:'Social Battery Distortion',small:'Energy Direction Match'},
+  SN:{big:'Big Picture vs. Realism Clash',small:'Realism Match'},
+  TF:{big:'Cold-Kindness Index Triggered',small:'Emotional Expression Match'},
+  JP:{big:'Planner-Person Misread Rising',small:'Flow Sense Match'},
 };
-const INTIMACY_OPTS = ['매우 공적인 관계예요 (업무·형식)','그냥 아는 사이예요','보통 정도의 관계예요','꽤 가까운 편이에요','매우 친밀한 사이예요'];
+const INTIMACY_OPTS = ['A very formal relationship (work/official)','Just an acquaintance','A moderate relationship','Pretty close','Very intimate/close'];
 
 /* ═══════════════════════════════════════════
    STATE
@@ -667,7 +667,7 @@ function go(id){
   window.scrollTo({top:0});
   if(id==='map') renderMap();
 }
-function showLoad(msg='저장 중...'){$('loadingMsg').textContent=msg;$('loading').classList.add('show')}
+function showLoad(msg='Saving...'){$('loadingMsg').textContent=msg;$('loading').classList.add('show')}
 function hideLoad(){$('loading').classList.remove('show')}
 function typeFrom(s){return (s.EI>=0?'E':'I')+(s.SN>=0?'S':'N')+(s.TF>=0?'T':'F')+(s.JP>=0?'J':'P')}
 function encodeResp(obj){return 'PRISM.'+btoa(unescape(encodeURIComponent(JSON.stringify(obj))))}
@@ -678,13 +678,13 @@ function decodeResp(str){
 }
 function copyEl(id,btn){
   navigator.clipboard.writeText($(id).textContent).then(()=>{
-    const t=btn.textContent;btn.textContent='복사됨 ✓';
+    const t=btn.textContent;btn.textContent='Copied ✓';
     setTimeout(()=>btn.textContent=t,1600);
   });
 }
 function shareInvite(){
   const url=$(('inviteLinkBox')).textContent;
-  if(navigator.share)navigator.share({title:'당신 뒤에서 오가는 평가가 있습니다 — PRISM',url});
+  if(navigator.share)navigator.share({title:"There’s an evaluation happening behind your back — PRISM",url});
   else copyEl('inviteLinkBox',event.target);
 }
 function scoreQ(Q,answers){
@@ -744,14 +744,14 @@ async function loadResponses(sessionId){
   const bi=$('beamIn'), beamsEl=$('beams'), bgs=beamsEl.querySelectorAll('line');
 
   function play(){
-    // 리셋
+    // reset
     bi.style.transition='none';
     bi.style.strokeDashoffset='160';
     beamsEl.style.transition='none';
     beamsEl.style.opacity='0';
     bgs.forEach(l=>{ l.style.transition='none'; l.style.strokeDashoffset='180'; });
 
-    // 한 프레임 대기 후 재생
+    // wait one frame before playing
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
       bi.style.transition='stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1)';
       bi.style.strokeDashoffset='0';
@@ -811,13 +811,13 @@ async function loadResponses(sessionId){
 ═══════════════════════════════════════════ */
 function startSelf(){
   S.mode='self';S.qIdx=0;S.answers=new Array(SELF_Q.length).fill(null);
-  $('modeBadge').textContent='자가 검사';
+  $('modeBadge').textContent='Self test';
   go('test');renderQ();
 }
 function startObserver(){
   if(!S.rel)return;
   S.mode='observer';S.qIdx=0;S.answers=new Array(8).fill(null);S.intimacy=null;
-  $('modeBadge').textContent=REL_META[S.rel].icon+' '+REL_META[S.rel].name+'의 시선으로 평가';
+  $('modeBadge').textContent=REL_META[S.rel].icon+' Evaluating through '+REL_META[S.rel].name+"'s eyes";
   go('test');renderQ();
 }
 function renderQ(){
@@ -845,14 +845,14 @@ function prevQ(){if(S.qIdx>0){S.qIdx--;renderQ();}}
 async function finishTest(){
   if(S.mode==='self'){
     S.self=scoreQ(SELF_Q,S.answers);
-    showLoad('결과를 저장하는 중...');
+    showLoad('Saving your results...');
     try{
       S.sessionId=await createSession(S.self);
-      const base=location.protocol.startsWith('http')?location.origin+location.pathname:'(배포 후 링크 생성)';
+      const base=location.protocol.startsWith('http')?location.origin+location.pathname:'(link will be generated after deployment)';
       $('inviteLinkBox').textContent=base+'?s='+S.sessionId;
       localStorage.setItem('prism_session',S.sessionId);
     }catch(e){
-      $('inviteLinkBox').textContent='(저장 실패 — Supabase 연결을 확인해 주세요)';
+      $('inviteLinkBox').textContent='(save failed — please check your Supabase connection)';
     }
     hideLoad();
     renderSelfResult();
@@ -862,7 +862,7 @@ async function finishTest(){
   }
 }
 function showIntimacyScreen(){
-  $('intimacyBadge').textContent=REL_META[S.rel].icon+' '+REL_META[S.rel].name+'의 시선 — 마지막 단계';
+  $('intimacyBadge').textContent=REL_META[S.rel].icon+' '+REL_META[S.rel].name+"'s perspective — final step";
   const box=$('intimacyOpts');box.innerHTML='';
   $('intimacyNextBtn').disabled=true;
   INTIMACY_OPTS.forEach((lbl,i)=>{
@@ -887,7 +887,7 @@ async function confirmIntimacy(){
   const code=encodeResp(respObj);
   $('respCodeBox').textContent=code;
   const sid=new URLSearchParams(location.search).get('s');
-  if(sid){showLoad('저장 중...');try{await saveResponse(sid,respObj)}catch(e){}hideLoad();}
+  if(sid){showLoad('Saving...');try{await saveResponse(sid,respObj)}catch(e){}hideLoad();}
   go('observerDone');
 }
 
@@ -897,8 +897,8 @@ async function confirmIntimacy(){
 function renderSelfResult(){
   const t=typeFrom(S.self);
   $('selfTypeCode').textContent=t;
-  $('selfTypeDesc').textContent=t.split('').map(c=>TYPE_WORDS[c]).join(' · ')+'를 가진 사람';
-  drawRadar('radarSelf',[{label:'나',scores:S.self,color:REL_COLORS.self,dash:null}]);
+  $('selfTypeDesc').textContent='A person defined by '+t.split('').map(c=>TYPE_WORDS[c]).join(' · ');
+  drawRadar('radarSelf',[{label:'Me',scores:S.self,color:REL_COLORS.self,dash:null}]);
   $('selfAxes').innerHTML=AXES.map(a=>axisHtml(a,S.self[a],null)).join('');
   $('navMapBtn').style.display='inline';
   const nick=NICKNAMES[t]?.self;
@@ -910,18 +910,18 @@ function renderSelfResult(){
 ═══════════════════════════════════════════ */
 async function addResponse(){
   const obj=decodeResp($('respInput').value);
-  if(!obj||!obj.s||!REL_META[obj.rel]){$('respErr').style.display='block';$('respErr').textContent='코드를 인식할 수 없어요. 전체 코드가 복사되었는지 확인해 주세요.';return}
-  if(S.responses.some(r=>r.ts===obj.ts)){$('respErr').style.display='block';$('respErr').textContent='이미 추가된 코드예요.';return}
+  if(!obj||!obj.s||!REL_META[obj.rel]){$('respErr').style.display='block';$('respErr').textContent="Couldn’t recognize that code. Please check that the full code was copied.";return}
+  if(S.responses.some(r=>r.ts===obj.ts)){$('respErr').style.display='block';$('respErr').textContent='This code has already been added.';return}
   $('respErr').style.display='none';
   // push to Supabase if session exists
   if(S.sessionId){
-    showLoad('관점 저장 중...');
+    showLoad('Saving perspective...');
     try{await saveResponse(S.sessionId,obj)}catch(e){}
     hideLoad();
   }
   S.responses.push(obj);
   $('respInput').value='';
-  $('respCount').textContent='수집된 관점 '+S.responses.length+'개';
+  $('respCount').textContent='Perspectives collected: '+S.responses.length;
   $('toMapBtn').disabled=false;
   $('navMapBtn').style.display='inline';
   if(S.self) showFakpok('fakpokResult',S.self,S.responses);
@@ -932,7 +932,7 @@ async function addResponse(){
 ═══════════════════════════════════════════ */
 // 8-axis radar: E, S, T, J, I, N, F, P
 const RADAR_AXES=['E','S','T','J','I','N','F','P'];
-const RADAR_LABELS={E:'외향',S:'현실',T:'사고',J:'계획',I:'내향',N:'직관',F:'감정',P:'유연'};
+const RADAR_LABELS={E:'Extro',S:'Sense',T:'Think',J:'Judge',I:'Intro',N:'Intuit',F:'Feel',P:'Perceive'};
 function radarCoord(axisIdx,value,R){
   const angle=(axisIdx/8)*Math.PI*2-Math.PI/2;
   return {x:Math.cos(angle)*value*R,y:Math.sin(angle)*value*R};
@@ -1004,7 +1004,7 @@ function axisHtml(axis,self,others){
   const info=AXIS_INFO[axis];
   const pos=v=>(50-v/2)+'%';
   const side=v=>info.names[v>=0?0:1];
-  const strength=v=>{const x=Math.abs(v);return x<15?'균형에 가까운':x<50?'다소':''};
+  const strength=v=>{const x=Math.abs(v);return x<15?'nearly balanced':x<50?'somewhat':''};
   const gapAbs=others!==null&&others!==undefined?Math.abs(self-others):0;
   const gapName=others!==null&&others!==undefined?GAP_NAMES[axis][gapAbs>25?'big':'small']:'';
   let h=`<div class="axis">
@@ -1019,10 +1019,10 @@ function axisHtml(axis,self,others){
     h+=`<span class="tdot" style="left:${pos(others)};color:#7B9FD4;background:var(--soft)"></span>`;
   h+='</div>';
   if(others===null||others===undefined){
-    h+=`<p class="axis-verdict"><strong>${strength(self)} ${side(self)}</strong> 성향이에요.</p>`;
+    h+=`<p class="axis-verdict">You lean <strong>${strength(self)} ${side(self)}</strong>.</p>`;
   }else{
     const agree=(self>=0)===(others>=0);
-    h+=`<p class="axis-verdict">나: <strong>${side(self)}</strong> · 타인 평균: <strong>${side(others)}</strong>${agree?' — 인식이 일치해요 ✓':' — 시선이 엇갈려요'}</p>`;
+    h+=`<p class="axis-verdict">Me: <strong>${side(self)}</strong> · Others' average: <strong>${side(others)}</strong>${agree?' — perceptions match ✓':' — perspectives differ'}</p>`;
   }
   return h+'</div>';
 }
@@ -1042,8 +1042,8 @@ function renderMap(){
   S.responses.forEach(r=>{(groups[r.rel]=groups[r.rel]||[]).push(r)});
 
   // persona grid
-  const entries=[['self',S.self,'내가 보는 나','Core Identity']];
-  Object.entries(groups).forEach(([rel,list])=>entries.push([rel,avg(list),REL_META[rel].name+'의 시선',list.length+'명 응답']));
+  const entries=[['self',S.self,'How I see myself','Core Identity']];
+  Object.entries(groups).forEach(([rel,list])=>entries.push([rel,avg(list),REL_META[rel].name+"'s view",list.length+' response'+(list.length===1?'':'s')]));
 
   if(S.responses.length) showFakpok('fakpokMap',S.self,S.responses);
   $('personaGrid').innerHTML=entries.map(([rel,sc,lbl,sub],i)=>{
@@ -1064,11 +1064,11 @@ function renderMap(){
   drawRadar('radarMap',datasets);
   $('radarLegend').innerHTML=datasets.map(d=>`<div class="legend-item"><div class="legend-dot" style="background:${d.color}"></div>${d.label}</div>`).join('');
 
-  // ── Gap Index & 관계별 해석 ──
+  // ── Gap Index & per-relationship interpretation ──
   const othersAvg=S.responses.length?avg(S.responses):null;
 
   if(othersAvg){
-    // 전체 Gap 바
+    // overall Gap bar
     $('gapIndex').innerHTML=AXES.map(a=>{
       const pct=Math.round(Math.abs(S.self[a]-othersAvg[a])/2);
       const selfSide=AXIS_INFO[a].names[S.self[a]>=0?0:1];
@@ -1080,13 +1080,13 @@ function renderMap(){
         <span class="gap-value en">${pct}%</span>
       </div>
       <p class="muted" style="padding:2px 0 14px;font-size:13.5px">
-        나: <strong style="color:var(--ink)">${selfSide}</strong> &nbsp;·&nbsp;
-        타인 평균: <strong style="color:var(--ink)">${otherSide}</strong>
-        ${match?' &nbsp;<span style="color:#5a9a6f;font-weight:700">일치 ✓</span>':' &nbsp;<span style="color:#a06040;font-weight:700">간극 있음</span>'}
+        Me: <strong style="color:var(--ink)">${selfSide}</strong> &nbsp;·&nbsp;
+        Others' average: <strong style="color:var(--ink)">${otherSide}</strong>
+        ${match?' &nbsp;<span style="color:#5a9a6f;font-weight:700">Match ✓</span>':' &nbsp;<span style="color:#a06040;font-weight:700">Gap found</span>'}
       </p>`;
     }).join('');
 
-    // 관계별 상세 해석
+    // detailed interpretation by relationship
     const relInsights=Object.entries(groups).map(([rel,list])=>{
       const rs=avg(list);
       const meta=REL_META[rel];
@@ -1095,33 +1095,33 @@ function renderMap(){
         const gap=Math.abs(S.self[a]-rs[a]);
         const selfSide=AXIS_INFO[a].names[S.self[a]>=0?0:1];
         const relSide=AXIS_INFO[a].names[rs[a]>=0?0:1];
-        if(gap<15) return `<li><span style="color:var(--t3)">${AXIS_INFO[a].names[0]}–${AXIS_INFO[a].names[1]}</span> — 인식이 <strong>일치</strong>해요</li>`;
-        return `<li><span style="color:var(--t3)">${AXIS_INFO[a].names[0]}–${AXIS_INFO[a].names[1]}</span> — 나는 <strong>${selfSide}</strong>라 느끼지만, ${meta.name}는 <strong>${relSide}</strong>로 봐요 <span style="color:${color};font-weight:700">(gap ${Math.round(gap/2)}%)</span></li>`;
+        if(gap<15) return `<li><span style="color:var(--t3)">${AXIS_INFO[a].names[0]}–${AXIS_INFO[a].names[1]}</span> — perceptions <strong>match</strong></li>`;
+        return `<li><span style="color:var(--t3)">${AXIS_INFO[a].names[0]}–${AXIS_INFO[a].names[1]}</span> — I feel <strong>${selfSide}</strong>, but ${meta.name} sees you as <strong>${relSide}</strong> <span style="color:${color};font-weight:700">(gap ${Math.round(gap/2)}%)</span></li>`;
       }).join('');
       const relType=typeFrom(rs);
       const selfType=typeFrom(S.self);
       const summary=relType===selfType
-        ?`${meta.icon} <strong>${meta.name}</strong>가 보는 당신은 <strong class="en">${relType}</strong> — 자기 인식과 완전히 일치해요.`
-        :`${meta.icon} <strong>${meta.name}</strong>가 보는 당신은 <strong class="en">${relType}</strong>. 자기 인식(${selfType})과 다른 모습이에요.`;
+        ?`${meta.icon} The you that <strong>${meta.name}</strong> sees is <strong class="en">${relType}</strong> — a perfect match with your self-perception.`
+        :`${meta.icon} The you that <strong>${meta.name}</strong> sees is <strong class="en">${relType}</strong>. That differs from your self-perception (${selfType}).`;
       return `<div class="rel-insight-card" style="border-left:3px solid ${color}">
         <p style="font-size:16px;margin-bottom:12px">${summary}</p>
         <ul style="padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;color:var(--t2)">${lines}</ul>
       </div>`;
     }).join('');
 
-    $('blindSpot').innerHTML=relInsights||'<p class="muted">관계별 응답이 쌓이면 여기에 상세 해석이 나타납니다.</p>';
+    $('blindSpot').innerHTML=relInsights||'<p class="muted">Once responses build up by relationship, detailed insights will appear here.</p>';
 
     // Persona Shift
     const relTypes=entries.slice(1);
     const uniq=[...new Set(relTypes.map(e=>typeFrom(e[1])))];
     $('personaShift').innerHTML=uniq.length<=1
-      ?'모든 관계에서 <strong>일관된 모습</strong>으로 비칩니다. 환경이 바뀌어도 핵심 자아가 흔들리지 않는 편이에요.'
-      :`관계마다 다른 페르소나가 나타납니다.<br><br>`+relTypes.map(e=>{
+      ?'You come across <strong>consistently</strong> across every relationship. Your core self doesn’t waver much, even as your environment changes.'
+      :`A different persona shows up in each relationship.<br><br>`+relTypes.map(e=>{
         const color=REL_COLORS[e[0]]||'#aaa';
         return `<span style="display:inline-flex;align-items:center;gap:6px;margin:4px 8px 4px 0"><span style="width:10px;height:10px;border-radius:50%;background:${color};display:inline-block;flex-shrink:0"></span><strong>${REL_META[e[0]]?.name||e[2]}</strong> → <span class="en" style="font-weight:700">${typeFrom(e[1])}</span></span>`;
-      }).join('')+'<br><br>이는 환경에 맞춰 적응하는 당신의 <strong>스펙트럼 폭</strong>을 보여줍니다.';
+      }).join('')+'<br><br>This shows the <strong>breadth of your spectrum</strong> as you adapt to your environment.';
 
-    // 가면 지수
+    // Mask Index
     const hasMask=S.responses.some(r=>r.intimacy);
     if(hasMask){
       $('maskIndex').innerHTML=Object.entries(groups).map(([rel,list])=>{
@@ -1132,19 +1132,19 @@ function renderMap(){
         const m=getMaskInfo(avgInt,gapPct);
         return `<div class="mask-card" style="border-left:3px solid ${m.color}">
           <span class="mask-label" style="background:${m.color}22;color:${m.color}">${m.label}</span>
-          <div style="font-size:15px;font-weight:700;margin-bottom:6px">${meta.icon} ${meta.name} <span style="font-family:Inter;font-weight:500;font-size:13px;color:var(--t3)">친밀도 ${Math.round(avgInt*10)/10}/5</span></div>
+          <div style="font-size:15px;font-weight:700;margin-bottom:6px">${meta.icon} ${meta.name} <span style="font-family:Inter;font-weight:500;font-size:13px;color:var(--t3)">Closeness ${Math.round(avgInt*10)/10}/5</span></div>
           <div style="font-size:14.5px;color:var(--t2)">${m.desc}</div>
         </div>`;
       }).join('');
     }else{
-      $('maskIndex').innerHTML='<p class="muted" style="padding-top:4px">친밀도 정보가 포함된 응답이 쌓이면 가면 지수가 표시됩니다.</p>';
+      $('maskIndex').innerHTML='<p class="muted" style="padding-top:4px">Once responses with closeness info build up, the Mask Index will appear.</p>';
     }
 
   }else{
-    $('gapIndex').innerHTML='<p class="muted" style="padding:16px 0">타인의 응답 코드를 추가하면 Gap Index가 열립니다.</p>';
-    $('blindSpot').innerHTML='<p class="muted">타인의 응답 코드를 추가하면 관계별 상세 해석이 시작됩니다.</p>';
-    $('personaShift').innerHTML='<p class="muted">두 개 이상의 관계에서 관점을 수집하면 환경별 변화가 표시됩니다.</p>';
-    $('maskIndex').innerHTML='<p class="muted">타인의 응답이 쌓이면 가면 지수가 표시됩니다.</p>';
+    $('gapIndex').innerHTML='<p class="muted" style="padding:16px 0">Add someone else’s response code to unlock the Gap Index.</p>';
+    $('blindSpot').innerHTML='<p class="muted">Add someone else’s response code to start detailed insights by relationship.</p>';
+    $('personaShift').innerHTML='<p class="muted">Collect perspectives from two or more relationships to see how you shift across environments.</p>';
+    $('maskIndex').innerHTML="<p class=\"muted\">Once others' responses build up, the Mask Index will appear.</p>";
   }
 }
 
@@ -1163,7 +1163,7 @@ function renderMap(){
     // check if returning self user with local session
     const saved=localStorage.getItem('prism_session');
     if(saved){
-      showLoad('이전 세션 불러오는 중...');
+      showLoad('Loading previous session...');
       try{
         const sess=await loadSession(saved);
         if(sess){
@@ -1175,7 +1175,7 @@ function renderMap(){
           if(S.responses.length>0){
             $('toMapBtn').disabled=false;
             $('navMapBtn').style.display='inline';
-            $('respCount').textContent='수집된 관점 '+S.responses.length+'개';
+            $('respCount').textContent='Perspectives collected: '+S.responses.length;
           }
           renderSelfResult();
           go('result');
@@ -1200,28 +1200,28 @@ async function submitFeedbackFrom(inputId, wrapId, reload=false){
       body:JSON.stringify({message:msg})
     });
     if(!r.ok)throw new Error();
-    $(wrapId).innerHTML=`<div style="text-align:center;padding:28px 0"><p style="font-size:32px;margin-bottom:12px">✓</p><h3>고마워요!</h3><p class="muted" style="margin-top:8px">소중한 한마디가 잘 전달됐어요.</p></div>`;
+    $(wrapId).innerHTML=`<div style="text-align:center;padding:28px 0"><p style="font-size:32px;margin-bottom:12px">✓</p><h3>Thank you!</h3><p class="muted" style="margin-top:8px">Your comment came through loud and clear.</p></div>`;
     if(reload) loadFeedbackList();
   }catch(e){
-    if(btn){btn.disabled=false;btn.textContent='다시 시도';}
+    if(btn){btn.disabled=false;btn.textContent='Try again';}
   }
 }
 async function loadFeedbackList(){
   const list=$('feedbackList');
-  list.innerHTML='<p class="fb-empty">불러오는 중...</p>';
+  list.innerHTML='<p class="fb-empty">Loading...</p>';
   try{
     const r=await fetch(SB_URL+'/rest/v1/prism_feedback?select=message,created_at&order=created_at.desc&limit=50',{
       headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
     });
     const data=await r.json();
-    if(!data.length){list.innerHTML='<p class="fb-empty">아직 한마디가 없어요. 첫 번째로 남겨주세요!</p>';return;}
+    if(!data.length){list.innerHTML='<p class="fb-empty">No comments yet. Be the first to leave one!</p>';return;}
     list.innerHTML=data.map(d=>{
       const dt=new Date(d.created_at);
       const diff=Math.floor((Date.now()-dt)/60000);
-      const timeStr=diff<1?'방금':diff<60?diff+'분 전':diff<1440?Math.floor(diff/60)+'시간 전':Math.floor(diff/1440)+'일 전';
+      const timeStr=diff<1?'just now':diff<60?diff+'m ago':diff<1440?Math.floor(diff/60)+'h ago':Math.floor(diff/1440)+'d ago';
       return `<div class="fb-msg-card"><p class="fb-text">${d.message.replace(/</g,'&lt;')}</p><p class="fb-time">${timeStr}</p></div>`;
     }).join('');
-  }catch(e){list.innerHTML='<p class="fb-empty">불러오지 못했어요. 잠시 후 다시 시도해 주세요.</p>';}
+  }catch(e){list.innerHTML='<p class="fb-empty">Couldn’t load. Please try again in a moment.</p>';}
 }
 async function loadAndShowFeedback(){
   go('feedbackView');
@@ -1248,7 +1248,7 @@ async function submitFeedback(){
       body:JSON.stringify({message:msg})
     });
     if(!r.ok)throw new Error(await r.text());
-    $('fbSheet').innerHTML=`<div class="fb-handle"></div><div style="text-align:center;padding:28px 0 8px"><p style="font-size:36px;margin-bottom:14px">✓</p><h3>고마워요!</h3><p class="muted" style="margin-top:8px">소중한 한마디가 잘 전달됐어요.</p><button class="btn" style="margin-top:24px;width:100%" onclick="closeFeedback()">닫기</button></div>`;
+    $('fbSheet').innerHTML=`<div class="fb-handle"></div><div style="text-align:center;padding:28px 0 8px"><p style="font-size:36px;margin-bottom:14px">✓</p><h3>Thank you!</h3><p class="muted" style="margin-top:8px">Your comment came through loud and clear.</p><button class="btn" style="margin-top:24px;width:100%" onclick="closeFeedback()">Close</button></div>`;
   }catch(e){
     $('fbErr').style.display='block';
     $('fbSubmitBtn').disabled=false;
@@ -1262,7 +1262,7 @@ function generateFakpok(selfScores, responses){
   const relTypes=Object.entries(groups).map(([rel,list])=>({rel,type:typeFrom(avg(list))}));
   const diff=relTypes.filter(r=>r.type!==selfType);
   if(diff.length===0){
-    return `당신은 어느 관계에서든 <strong>${selfType}</strong>로 일관되게 보입니다.<br>자기 인식과 타인 인식이 거의 일치하는 드문 케이스입니다.`;
+    return `You come across consistently as <strong>${selfType}</strong> in every relationship.<br>This is a rare case where self-perception and others' perception nearly match.`;
   }
   const biggestGapAxis=AXES.reduce((acc,a)=>{
     const allOthers=responses.map(r=>r.s[a]);
@@ -1274,11 +1274,11 @@ function generateFakpok(selfScores, responses){
   const info=AXIS_INFO[axis];
   const selfSide=selfVal>=0?info.names[0]:info.names[1];
   const otherSide=otherVal>=0?info.names[0]:info.names[1];
-  const diffRels=diff.map(r=>REL_META[r.rel]?.name||r.rel).join('·');
+  const diffRels=diff.map(r=>REL_META[r.rel]?.name||r.rel).join(' & ');
   if(diff.length===relTypes.length){
-    return `당신은 스스로를 <strong>${selfType}</strong>라 생각하지만,<br>주변 모두는 당신을 <strong>${diff[0].type}</strong>로 경험하고 있습니다.`;
+    return `You think of yourself as <strong>${selfType}</strong>,<br>but everyone around you experiences you as <strong>${diff[0].type}</strong>.`;
   }
-  return `본인 주장: <strong>${selfSide}형</strong>&nbsp;&nbsp;·&nbsp;&nbsp;${diffRels}가 겪은 나: <strong>${otherSide}형</strong><br><span style="font-size:15px;font-weight:600;color:var(--t3)">${GAP_NAMES[axis].big}</span>`;
+  return `Your claim: <strong>${selfSide} type</strong>&nbsp;&nbsp;·&nbsp;&nbsp;The you that ${diffRels} experiences: <strong>${otherSide} type</strong><br><span style="font-size:15px;font-weight:600;color:var(--t3)">${GAP_NAMES[axis].big}</span>`;
 }
 function showFakpok(elId, selfScores, responses){
   const txt=generateFakpok(selfScores,responses);
@@ -1288,26 +1288,26 @@ function showFakpok(elId, selfScores, responses){
 }
 function getMaskInfo(avgInt,gapPct){
   const isClose=avgInt>=4,isFormal=avgInt<=2,isLarge=gapPct>30,isSmall=gapPct<15;
-  if(isClose&&isLarge)return{label:'진짜 블라인드 스팟',color:'#C45050',desc:'가장 가까운 사람도 당신을 다르게 봐요. 무의식적 가면이 있을 수 있어요.'};
-  if(isFormal&&isLarge)return{label:'사회적 가면',color:'#9B7FC8',desc:'공적인 관계 앞에서 다른 모습을 보이고 있어요.'};
-  if(isClose&&isSmall)return{label:'가장 당신다운 공간',color:'#5a9a6f',desc:'이 관계에서 가장 자신답게 있어요.'};
-  if(isFormal&&isSmall)return{label:'공적 일관성',color:'#5a9a6f',desc:'공적인 관계에서도 자신답게 행동해요.'};
-  return{label:'중간',color:'var(--t3)',desc:'자기 인식과 어느 정도 차이가 있어요.'};
+  if(isClose&&isLarge)return{label:'A True Blind Spot',color:'#C45050',desc:'Even the people closest to you see you differently. You may have an unconscious mask.'};
+  if(isFormal&&isLarge)return{label:'Social Mask',color:'#9B7FC8',desc:'You show a different side of yourself in formal relationships.'};
+  if(isClose&&isSmall)return{label:"Where You’re Most Yourself",color:'#5a9a6f',desc:"You’re most authentically yourself in this relationship."};
+  if(isFormal&&isSmall)return{label:'Consistent Even Formally',color:'#5a9a6f',desc:'You act like yourself even in formal relationships.'};
+  return{label:'In Between',color:'var(--t3)',desc:'There’s some gap from your self-perception.'};
 }
 async function resetResponses(){
-  if(!confirm('수집된 관점을 모두 지울까요? 자가검사 결과는 유지됩니다.'))return;
+  if(!confirm('Clear all collected perspectives? Your self-test results will be kept.'))return;
   S.responses=[];
   $('respInput').value='';
-  $('respCount').textContent='수집된 관점 0개 — 1개부터 지도를 볼 수 있어요';
+  $('respCount').textContent='0 perspectives collected — the map unlocks at 1';
   $('toMapBtn').disabled=true;
   if(S.sessionId){
-    showLoad('초기화 중...');
+    showLoad('Resetting...');
     try{await sbReq('prism_sessions?id=eq.'+S.sessionId,'PATCH',{responses:[]})}catch(e){}
     hideLoad();
   }
 }
 function resetAll(){
-  if(!confirm('전체 초기화할까요? 자가검사 결과와 세션이 모두 사라집니다.'))return;
+  if(!confirm('Reset everything? Your self-test results and session will all be erased.'))return;
   localStorage.removeItem('prism_session');
   S={self:null,responses:[],mode:'self',rel:null,qIdx:0,answers:[],sessionId:null,intimacy:null};
   go('home');
