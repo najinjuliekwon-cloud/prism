@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>PRISM — 서비스 개요 & 설문 로직 문서</title>
+<style>
+:root{
+  --paper:#FAF8F4; --paper-2:#F2EFE8; --ink:#211F2B; --ink-2:#57536A; --ink-3:#8B879C;
+  --line:#E3DFD3; --accent:#7C4FE0; --accent-soft:#EFE7FB;
+  --ei:#8D77B0; --sn:#3E7CB1; --tf:#3E8F6C; --jp:#B08A2E;
+  --friend:#1F8FC4; --family:#1FA876; --partner:#D06B33; --coworker:#9A4FD1;
+  --code-bg:#EFECE3; --shadow:0 1px 2px rgba(33,31,43,.06);
+  --font-body:-apple-system,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+  --font-mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#111018; --paper-2:#17151F; --ink:#EDEAF4; --ink-2:#B4AFC6; --ink-3:#726C87;
+    --line:#2A2735; --accent:#B794F6; --accent-soft:#241A38;
+    --ei:#B39FD6; --sn:#6FA8DC; --tf:#6FC29B; --jp:#D4B15E;
+    --friend:#4FC3F7; --family:#4FD9A0; --partner:#F08D5C; --coworker:#C77DF0;
+    --code-bg:#1B1926; --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+*{box-sizing:border-box}
+html{overflow-x:hidden}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font-body); font-size:16px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:960px;margin:0 auto;padding:0 24px 120px}
+.prose{max-width:680px}
+
+header.doc{padding:64px 0 32px;border-bottom:1px solid var(--line);margin-bottom:40px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 14px}
+h1.title{font-size:clamp(30px,5vw,42px);font-weight:800;letter-spacing:-.02em;margin:0 0 12px;text-wrap:balance}
+.deck{color:var(--ink-2);font-size:17px;max-width:640px;margin:0 0 22px}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px}
+nav.toc a{
+  font-size:13px;font-weight:600;color:var(--ink-2);text-decoration:none;
+  border:1px solid var(--line);border-radius:99px;padding:7px 14px;transition:.15s;
+}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+
+section.doc{margin:0 0 72px}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.section-num{font-family:var(--font-mono);font-size:13px;color:var(--ink-3)}
+h2{font-size:26px;font-weight:800;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.section-sub{color:var(--ink-2);font-size:15.5px;margin:6px 0 28px;max-width:640px}
+h3{font-size:18px;font-weight:800;margin:36px 0 10px}
+p{margin:0 0 16px}
+.prose p{max-width:640px}
+strong{font-weight:700;color:var(--ink)}
+a{color:var(--accent)}
+.muted{color:var(--ink-3);font-size:14px}
+
+.callout{
+  background:var(--accent-soft);border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:18px 22px;margin:22px 0;max-width:640px;
+}
+.callout p{margin:0;font-size:15.5px}
+
+.flow{display:flex;flex-direction:column;gap:0;max-width:640px;margin:24px 0}
+.flow-step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.flow-step:last-child{border-bottom:none}
+.flow-icon{font-size:22px;flex-shrink:0;width:32px;text-align:center;padding-top:2px}
+.flow-body strong{display:block;font-size:15.5px;margin-bottom:3px}
+.flow-body span{color:var(--ink-2);font-size:14.5px}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0 8px}
+.card{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--paper-2)}
+.card h4{margin:0 0 6px;font-size:15px;font-weight:800}
+.card p{margin:0;font-size:13.5px;color:var(--ink-2)}
+
+.table-wrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:560px}
+table.wide{min-width:720px}
+th{
+  text-align:left;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;padding:12px 16px;background:var(--paper-2);border-bottom:1px solid var(--line);
+}
+td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--ink-3);white-space:nowrap}
+
+.chip{
+  display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:11.5px;font-weight:700;
+  padding:3px 9px;border-radius:99px;white-space:nowrap;
+}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.chip.ei{color:var(--ei);background:color-mix(in srgb, var(--ei) 15%, transparent)}
+.chip.sn{color:var(--sn);background:color-mix(in srgb, var(--sn) 15%, transparent)}
+.chip.tf{color:var(--tf);background:color-mix(in srgb, var(--tf) 15%, transparent)}
+.chip.jp{color:var(--jp);background:color-mix(in srgb, var(--jp) 15%, transparent)}
+.pole{font-family:var(--font-mono);font-weight:800;font-size:13px}
+
+.rel-band td{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  padding:9px 16px;color:#fff;
+}
+.rel-band.friend td{background:var(--friend)}
+.rel-band.family td{background:var(--family)}
+.rel-band.partner td{background:var(--partner)}
+.rel-band.coworker td{background:var(--coworker)}
+
+.axis-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:20px 0}
+.axis-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;position:relative;overflow:hidden}
+.axis-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+.axis-card.ei::before{background:var(--ei)} .axis-card.sn::before{background:var(--sn)}
+.axis-card.tf::before{background:var(--tf)} .axis-card.jp::before{background:var(--jp)}
+.axis-card h4{margin:0 0 6px;font-size:15px;font-weight:800;font-family:var(--font-mono)}
+.axis-card p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.axis-poles{display:flex;gap:8px;margin-top:10px;font-size:12.5px;color:var(--ink-3)}
+.axis-poles b{color:var(--ink)}
+
+.worked{border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin:24px 0;background:var(--paper-2)}
+.worked-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.worked-row:last-child{border-bottom:none;padding-top:14px;font-weight:800;font-size:16px}
+.worked-row span:first-child{color:var(--ink-2)}
+.worked-row span:last-child{font-family:var(--font-mono);font-weight:700}
+code{font-family:var(--font-mono);background:var(--code-bg);padding:2px 6px;border-radius:5px;font-size:.9em}
+pre{font-family:var(--font-mono);background:var(--code-bg);padding:16px 18px;border-radius:12px;font-size:13px;overflow-x:auto;line-height:1.6;margin:16px 0}
+
+.review-list{display:flex;flex-direction:column;gap:10px;margin:20px 0;max-width:640px}
+.review-item{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:12px}
+.review-item .tag{
+  font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:6px;flex-shrink:0;margin-top:2px;
+}
+.tag.risk{background:#F6DEDE;color:#9C3B3B}
+.tag.note{background:var(--accent-soft);color:var(--accent)}
+@media (prefers-color-scheme:dark){.tag.risk{background:#3A2222;color:#E39B9B}}
+.review-item p{margin:0;font-size:14px;color:var(--ink-2)}
+.review-item strong{display:block;color:var(--ink);font-size:14.5px;margin-bottom:2px}
+
+footer.doc{border-top:1px solid var(--line);padding-top:24px;margin-top:20px;color:var(--ink-3);font-size:13px}
+
+@media(max-width:640px){
+  .page{padding:0 18px 80px}
+  header.doc{padding:40px 0 28px}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header class="doc">
+  <p class="eyebrow">Product &amp; Logic Reference</p>
+  <h1 class="title">PRISM이 실제로 하는 일</h1>
+  <p class="deck">한 번도 안 써본 사람에게 설명하는 소개, 개발/기능 리뷰용 구조 정리, 그리고 설문 문항이 어떻게 MBTI 4글자로 계산되는지의 전체 로직 — 이 세 가지를 한 문서에 담았습니다.</p>
+  <nav class="toc">
+    <a href="#intro">① 프리즘이 뭐야</a>
+    <a href="#review">② 기능/구조 리뷰</a>
+    <a href="#logic">③ 설문 → MBTI 로직</a>
+    <a href="#questions">④ 전체 문항</a>
+  </nav>
+</header>
+
+<!-- ══════════════════════════ 1. INTRO ══════════════════════════ -->
+<section class="doc prose" id="intro">
+  <div class="section-head"><span class="section-num">01</span><h2>프리즘이 뭐야?</h2></div>
+  <p class="section-sub">모르는 사람에게 설명한다고 생각하고 쓴 소개입니다.</p>
+
+  <p>한 줄로 말하면, <strong>"내가 생각하는 나"</strong>랑 <strong>"남들이 보는 나"</strong>가 얼마나 다른지 확인하는 서비스예요. 흔히 하는 MBTI 테스트인데, 나 혼자 푸는 게 아니라 <strong>친구·가족·연인·동료한테도 나를 관찰한 버전으로 풀게 시켜서</strong> 그 결과를 겹쳐 보여준다는 게 다릅니다.</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-icon">1️⃣</div>
+      <div class="flow-body"><strong>내가 먼저 16문항을 푼다</strong><span>"나는 원래 이런 사람이야"라고 생각하는 나의 모습. 약 3분.</span></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-icon">2️⃣</div>
+      <div class="flow-body"><strong>링크를 주변 사람에게 보낸다</strong><span>받은 사람은 나와의 관계(친구/가족/연인/동료)를 고르고, 그 관계에 맞춘 8문항으로 "이 사람은 이런 편이다"를 평가한다. 로그인도, 내 이름을 남기는 것도 없음 — 완전 익명.</span></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-icon">3️⃣</div>
+      <div class="flow-body"><strong>상대가 만든 "응답 코드"를 붙여넣는다</strong><span>암호 같은 문자열 하나가 생성되고, 그걸 카톡으로 보내주면 내가 다시 붙여넣어서 결과에 합친다.</span></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-icon">4️⃣</div>
+      <div class="flow-body"><strong>Identity Map이 열린다</strong><span>내가 생각한 유형과, 관계별로 다르게 보이는 유형을 나란히 보여주고, 어디서 가장 크게 어긋나는지("팩폭 지수")를 짚어준다.</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>예를 들어 나는 스스로 "T(사고형)"이라고 생각하는데, 연인은 나를 "F(감정형)"로 겪고 있다면 — 그 지점이 바로 "나는 모르는 나의 블라인드 스팟"으로 표시됩니다.</p>
+  </div>
+
+  <h3>왜 재밌냐면</h3>
+  <div class="card-grid">
+    <div class="card"><h4>팩폭 지수</h4><p>자기 인식과 타인 평균이 가장 크게 벌어지는 지점을 한 문장으로 요약해서 보여줌. "너 T인 줄 알았는데 다들 F로 본대" 같은 식.</p></div>
+    <div class="card"><h4>관계마다 다른 나</h4><p>같은 사람인데 친구 앞·가족 앞·회사에서 유형이 다르게 나올 수 있고, 그 변화 폭 자체를 "스펙트럼"으로 보여줌.</p></div>
+    <div class="card"><h4>가면 지수</h4><p>친밀도(얼마나 가까운 사이인지)와 인식 차이를 같이 봐서, 어느 관계에서 내가 가장 꾸밈없는지를 알려줌.</p></div>
+    <div class="card"><h4>완전 익명 참여</h4><p>증인(친구 등)은 로그인·이름 입력 없이 평가만 하고 코드만 돌려줌 — 누가 어떤 답을 했는지는 본인도 알 수 없게 설계됨.</p></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ 2. FUNCTIONAL REVIEW ══════════════════════════ -->
+<section class="doc" id="review">
+  <div class="section-head"><span class="section-num">02</span><h2>기능 / 구조 리뷰</h2></div>
+  <p class="section-sub prose">개발·기능 관점에서 훑어볼 수 있도록 화면 구조, 데이터 흐름, 기술 스택, 그리고 리뷰가 필요한 지점을 정리했습니다.</p>
+
+  <h3>화면 구성 (총 8개 스크린, 단일 페이지 안에서 전환)</h3>
+  <div class="table-wrap">
+  <table>
+    <tr><th>스크린 ID</th><th>역할</th><th>진입 경로</th></tr>
+    <tr><td><code>home</code></td><td>랜딩. 히어로 + 블러 처리된 결과 미리보기 + How it works</td><td>기본 진입점</td></tr>
+    <tr><td><code>test</code></td><td>자가/관찰자 공용 16(or 8)문항 리커트 테스트 화면</td><td>홈에서 "확인하기" 또는 관계 선택 후</td></tr>
+    <tr><td><code>inviteeLanding</code></td><td>초대 링크로 들어온 사람이 나와의 관계를 고르는 화면</td><td><code>?s=세션ID</code> 파라미터로 진입, 또는 홈의 "초대받았어요"</td></tr>
+    <tr><td><code>intimacyScreen</code></td><td>관찰자 전용, 마지막에 친밀도 5단계 질문</td><td>관찰자용 8문항 종료 후</td></tr>
+    <tr><td><code>result</code></td><td>자가검사 결과 카드 + 레이더 차트 + 증인 소환/응답코드 추가 UI</td><td>자가검사 종료 후</td></tr>
+    <tr><td><code>observerDone</code></td><td>관찰자가 마지막에 받는 "응답 코드" 화면</td><td>친밀도 확인 후</td></tr>
+    <tr><td><code>map</code></td><td>Identity Map — 축별 갭, 관계별 해석, 가면 지수, Persona Shift</td><td>결과 화면에서 "Identity Map 보기"</td></tr>
+    <tr><td><code>feedbackView</code></td><td>전체 사용자 코멘트 피드</td><td>홈 하단 링크 / 하단 플로팅 시트</td></tr>
+  </table>
+  </div>
+
+  <h3>기술 스택</h3>
+  <div class="card-grid">
+    <div class="card"><h4>프론트엔드</h4><p>빌드 도구 없는 순수 HTML/CSS/Vanilla JS 단일 파일 (<code>index.html</code>). 프레임워크·번들러 없음.</p></div>
+    <div class="card"><h4>백엔드</h4><p>Supabase(Postgres + PostgREST). 클라이언트에서 <code>anon key</code>로 REST 엔드포인트 직접 호출.</p></div>
+    <div class="card"><h4>호스팅</h4><p>Vercel. <strong>주의: GitHub 자동배포가 아니라 <code>vercel --prod</code> CLI 수동 배포</strong> — git push만으로는 반영 안 됨.</p></div>
+    <div class="card"><h4>다국어</h4><p>헤더의 KOR/ENG 토글. 문구는 <code>I18N_DATA</code>/<code>STR</code> 언어별 테이블 + <code>data-ko</code>/<code>data-en</code> 속성으로 관리, 선택 언어는 <code>localStorage</code>에 저장.</p></div>
+  </div>
+
+  <h3>데이터 모델 (Supabase 테이블 3개)</h3>
+  <div class="table-wrap">
+  <table class="wide">
+    <tr><th>테이블</th><th>주요 컬럼</th><th>용도</th></tr>
+    <tr><td><code>prism_sessions</code></td><td><code>id</code>, <code>self_scores</code>(jsonb), <code>responses</code></td><td>자가검사 1회당 세션 1개. 결과 페이지 URL의 <code>?s=</code>가 이 <code>id</code>.</td></tr>
+    <tr><td><code>prism_responses</code></td><td><code>session_id</code>, <code>rel</code>, <code>scores</code>, <code>intimacy</code>, <code>ts</code></td><td>관찰자(증인) 응답 1건당 1행. <code>ts</code>가 중복 추가 방지 키.</td></tr>
+    <tr><td><code>prism_feedback</code></td><td><code>message</code>, <code>created_at</code></td><td>익명 한마디 피드백.</td></tr>
+  </table>
+  </div>
+
+  <h3>응답 코드 매커니즘</h3>
+  <p class="prose">증인이 8문항을 다 풀면 <code>{rel, scores, intimacy, ts}</code> 객체를 JSON → <code>btoa</code>로 base64 인코딩해서 <code>PRISM.xxxxx</code> 형태의 문자열로 만듭니다(<code>encodeResp</code>). 이 코드는 <strong>Supabase에도 저장되고</strong>, 동시에 <strong>사람이 직접 복사해서 카톡 등으로 보낼 수도 있는 이중 경로</strong>로 설계되어 있어서, 네트워크 저장이 실패해도 코드 텍스트만 있으면 결과에 수동으로 합칠 수 있습니다(<code>decodeResp</code> → "관점 추가").</p>
+
+  <h3>리뷰 포인트</h3>
+  <div class="review-list">
+    <div class="review-item"><span class="tag risk">확인 필요</span><div><strong>Supabase anon key가 클라이언트 코드에 그대로 노출</strong><p>공개 anon key 자체는 Supabase의 정상적인 사용 방식이지만, 실제 쓰기/읽기 권한은 테이블별 RLS(Row Level Security) 정책이 막아줘야 안전합니다. 세 테이블의 RLS 정책이 의도한 대로(익명 insert만 허용, 임의 조회/수정 차단 등) 설정돼 있는지 대시보드에서 확인 권장.</p></div></div>
+    <div class="review-item"><span class="tag risk">확인 필요</span><div><strong>배포가 수동(CLI) 파이프라인</strong><p>GitHub push ≠ 배포. 코드 수정 후 <code>vercel --prod</code>를 잊으면 라이브 사이트가 옛날 버전인 채로 남습니다. Vercel 프로젝트를 GitHub 연동으로 바꾸면 이 리스크가 사라집니다.</p></div></div>
+    <div class="review-item"><span class="tag note">참고</span><div><strong>인증 없음 — 세션은 URL 파라미터 + localStorage</strong><p>로그인 개념이 없고, <code>?s=세션ID</code> 링크와 브라우저 <code>localStorage</code>의 <code>prism_session</code> 키로 "내 결과"를 식별합니다. 링크나 브라우저 데이터를 잃으면 결과 접근 수단이 사라집니다.</p></div></div>
+    <div class="review-item"><span class="tag note">참고</span><div><strong>단일 파일 구조</strong><p>빌드 단계가 없어 배포가 단순하지만, 문항/문구/로직이 한 파일(1300여 줄)에 모두 들어있어 규모가 커질수록 유지보수 비용이 커질 수 있는 트레이드오프입니다.</p></div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ 3. LOGIC ══════════════════════════ -->
+<section class="doc" id="logic">
+  <div class="section-head"><span class="section-num">03</span><h2>설문 → MBTI 매핑 로직</h2></div>
+  <p class="section-sub prose">16(자가) / 8(관찰자)개의 리커트 문항이 어떻게 4개의 알파벳으로 압축되는지, 실제 계산식 그대로 설명합니다.</p>
+
+  <h3>4개의 축</h3>
+  <div class="axis-legend">
+    <div class="axis-card ei"><h4>EI</h4><p>에너지의 방향 — 사람들과 있을 때 채워지는가, 혼자 있을 때 채워지는가</p><div class="axis-poles"><span><b>E</b> 외향</span><span><b>I</b> 내향</span></div></div>
+    <div class="axis-card sn"><h4>SN</h4><p>정보를 받아들이는 방식 — 눈에 보이는 사실 중심인가, 숨은 의미·가능성 중심인가</p><div class="axis-poles"><span><b>S</b> 현실</span><span><b>N</b> 직관</span></div></div>
+    <div class="axis-card tf"><h4>TF</h4><p>판단의 기준 — 논리/사실이 먼저인가, 감정/관계가 먼저인가</p><div class="axis-poles"><span><b>T</b> 사고</span><span><b>F</b> 감정</span></div></div>
+    <div class="axis-card jp"><h4>JP</h4><p>생활 방식 — 미리 계획하고 정리하는가, 상황에 맞춰 유연하게 흘러가는가</p><div class="axis-poles"><span><b>J</b> 계획</span><span><b>P</b> 유연</span></div></div>
+  </div>
+
+  <h3 class="prose">문항 하나하나에는 태그가 붙어있다</h3>
+  <p class="prose">코드상 모든 문항은 <code>{a, p, q}</code> 세 가지 정보로 정의됩니다.</p>
+  <pre>{ a:'EI', p:'E', q:'사람들과 어울리고 나면 오히려 에너지가 충전된다' }</pre>
+  <p class="prose"><code>a</code>는 이 문항이 어느 축을 재는지(<span class="chip ei">EI</span> 중 하나), <code>p</code>는 <strong>"매우 그렇다"라고 답했을 때 어느 극으로 힘을 싣는 문항인지</strong>를 뜻합니다. 위 예시는 EI 축 문항인데 <code>p:'E'</code>이므로, 강하게 동의할수록 E 쪽으로 점수가 붙습니다. 같은 EI 축이라도 "혼자 있는 시간이 없으면 피로가 쌓인다"처럼 <code>p:'I'</code>인 문항도 있어서, 동의할수록 반대로 I 쪽에 힘이 실리도록 부호가 자동으로 뒤집힙니다.</p>
+
+  <h3 class="prose">5점 리커트 → 점수 변환</h3>
+  <p class="prose">답변은 "전혀 그렇지 않다(0) ~ 매우 그렇다(4)"의 5단계. 이걸 <code>scoreQ()</code>가 아래 공식으로 -1 ~ +1 사이 값으로 바꿉니다.</p>
+  <pre>v = (답변번호 - 2) / 2          // 0→-1, 1→-0.5, 2→0, 3→+0.5, 4→+1
+if (p === a의 두번째 글자) v = -v // 문항의 힘의 방향이 축의 '음극'이면 부호 반전
+축점수 = 그 축에 속한 모든 문항의 v 평균 × 100   // 반올림, -100~100 범위</pre>
+
+  <div class="worked">
+    <div class="worked-row"><span>문항</span><span>"혼자 있는 시간이 없으면 피로가 쌓인다" (EI축, p=I)</span></div>
+    <div class="worked-row"><span>내 답변</span><span>3 = "그런 편이다"</span></div>
+    <div class="worked-row"><span>1차 변환</span><span>v = (3-2)/2 = +0.5</span></div>
+    <div class="worked-row"><span>부호 반전</span><span>p가 축의 두번째 글자(I) → v = -0.5</span></div>
+    <div class="worked-row"><span>다른 EI 문항 3개와 평균</span><span>예: (-0.5 -0.3 +0.2 -0.4)/4 = -0.25</span></div>
+    <div class="worked-row"><span>최종 EI 축 점수</span><span>-25 → 0 미만이므로 <strong>I</strong></span></div>
+  </div>
+
+  <h3 class="prose">4글자 유형 만들기</h3>
+  <p class="prose">4개 축 점수를 구했으면 <code>typeFrom()</code>이 각 축 부호만 보고 알파벳을 고릅니다 — <strong>0 이상이면 첫 글자(E/S/T/J), 음수면 두번째 글자(I/N/F/P)</strong>. 동점(0)은 첫 글자 쪽으로 처리됩니다.</p>
+  <pre>type = (EI≥0 ? 'E':'I') + (SN≥0 ? 'S':'N') + (TF≥0 ? 'T':'F') + (JP≥0 ? 'J':'P')</pre>
+
+  <h3 class="prose">자가검사 vs 관찰자검사</h3>
+  <p class="prose">채점 로직은 완전히 동일합니다. 차이는 문항 세트뿐입니다 — 자가검사는 축당 4문항씩 총 16문항(모든 사람 공통), 관찰자검사는 축당 2문항씩 총 8문항인데 <strong>"친구/가족/연인/동료" 관계별로 문항 내용 자체가 다릅니다</strong>(예: 친구용은 "단톡방", 동료용은 "회의"처럼 그 관계에서 실제로 관찰 가능한 장면으로 각색). 관찰자 응답에는 마지막에 <strong>친밀도(1~5)</strong>가 별도로 붙는데, 이 값은 채점에는 관여하지 않고 Identity Map의 "가면 지수" 계산에만 쓰입니다.</p>
+
+  <h3 class="prose">Identity Map은 여기서 한 단계 더 간다</h3>
+  <p class="prose">자가 점수와, 같은 관계의 응답 여러 개를 축별 평균낸 "타인 점수"를 나란히 놓고 축마다 <code>|자가 - 타인|</code> 차이를 봅니다. 차이가 클수록(코드 기준 <code>gap &gt; 25</code>) "왜곡" 태그가 붙고, "팩폭 지수"는 그 중 <strong>가장 차이가 큰 축 하나</strong>를 골라 문장으로 요약합니다.</p>
+</section>
+
+<!-- ══════════════════════════ 4. QUESTIONS ══════════════════════════ -->
+<section class="doc" id="questions">
+  <div class="section-head"><span class="section-num">04</span><h2>전체 문항</h2></div>
+  <p class="section-sub prose">자가검사 16문항 + 관계별 관찰자 문항 32개(4관계 × 8문항), 총 48문항 원문 그대로.</p>
+
+  <h3 class="prose">자가검사 — 16문항 (모든 사용자 공통)</h3>
+  <div class="table-wrap">
+  <table class="wide">
+    <tr><th>#</th><th>축</th><th>힘의 방향</th><th>문항</th></tr>
+    <tr><td class="num">1</td><td><span class="chip ei">EI</span></td><td class="pole">E</td><td>사람들과 어울리고 나면 오히려 에너지가 충전된다</td></tr>
+    <tr><td class="num">2</td><td><span class="chip ei">EI</span></td><td class="pole">E</td><td>생각이 복잡할 때 혼자 끙끙대기보다 남들에게 말하면서 정리하는 편이다</td></tr>
+    <tr><td class="num">3</td><td><span class="chip ei">EI</span></td><td class="pole">I</td><td>하루 중 혼자 있는 시간이 없으면 피로가 쌓인다</td></tr>
+    <tr><td class="num">4</td><td><span class="chip ei">EI</span></td><td class="pole">I</td><td>전화벨이 울리면 바로 받기보다 왜 걸었지 먼저 생각하는 편이다</td></tr>
+    <tr><td class="num">5</td><td><span class="chip sn">SN</span></td><td class="pole">N</td><td>영화를 볼 때 줄거리보다 숨겨진 의미나 복선을 추리하는 것을 즐기는 편이다</td></tr>
+    <tr><td class="num">6</td><td><span class="chip sn">SN</span></td><td class="pole">S</td><td>무언가를 조립할 때 감으로 하기보다 설명서의 순서를 그대로 따르는 편이다</td></tr>
+    <tr><td class="num">7</td><td><span class="chip sn">SN</span></td><td class="pole">N</td><td>멍 때릴 때 일상적인 고민보다 아예 현실성 없는 상상에 자주 빠지는 편이다</td></tr>
+    <tr><td class="num">8</td><td><span class="chip sn">SN</span></td><td class="pole">S</td><td>길을 설명할 때 "큰 은행 건물에서 오른쪽"처럼 눈에 보이는 기준으로 말하는 편이다</td></tr>
+    <tr><td class="num">9</td><td><span class="chip tf">TF</span></td><td class="pole">T</td><td>슬픈 사연을 들을 때, 슬퍼하기 전에 "근데 저게 현실적으로 말이 되나?"를 먼저 따지는 편이다</td></tr>
+    <tr><td class="num">10</td><td><span class="chip tf">TF</span></td><td class="pole">T</td><td>친구가 살찐 것 같다고 하면, 위로보다는 팩트나 다이어트 팁을 먼저 말해주는 편이다</td></tr>
+    <tr><td class="num">11</td><td><span class="chip tf">TF</span></td><td class="pole">F</td><td>내 말이 아무리 맞아도 상대방이 너무 상처받은 것 같으면 먼저 굽혀주는 편이다</td></tr>
+    <tr><td class="num">12</td><td><span class="chip tf">TF</span></td><td class="pole">F</td><td>속으로 동의하지 않는 이야기라도 겉으로는 "맞아", "진짜?"라며 리액션을 잘 해주는 편이다</td></tr>
+    <tr><td class="num">13</td><td><span class="chip jp">JP</span></td><td class="pole">P</td><td>마트나 쇼핑을 갈 때 살 것을 미리 적어가기보다 현장에서 끌리는 대로 사는 편이다</td></tr>
+    <tr><td class="num">14</td><td><span class="chip jp">JP</span></td><td class="pole">J</td><td>여행 전날, 출발부터 도착까지의 전체 동선을 머릿속으로 미리 시뮬레이션해 보는 편이다</td></tr>
+    <tr><td class="num">15</td><td><span class="chip jp">JP</span></td><td class="pole">P</td><td>마감 직전의 압박감을 원동력 삼아 벼락치기로 끝내는 것이 잘 맞는 편이다</td></tr>
+    <tr><td class="num">16</td><td><span class="chip jp">JP</span></td><td class="pole">J</td><td>스마트폰 앱 알림이나 안 읽은 메시지의 빨간 숫자를 보면 거슬려서 다 지우는 편이다</td></tr>
+  </table>
+  </div>
+
+  <h3 class="prose">관찰자검사 — 관계별 8문항 × 4관계</h3>
+  <div class="table-wrap">
+  <table class="wide">
+    <tr><th>#</th><th>축</th><th>힘의 방향</th><th>문항</th></tr>
+    <tr class="rel-band friend"><td colspan="4">👥 친구</td></tr>
+    <tr><td class="num">1</td><td><span class="chip ei">EI</span></td><td class="pole">E</td><td>이 친구는 모임에서 침묵이 길어지면 참지 못하고 먼저 아무 말이나 꺼내는 편이다</td></tr>
+    <tr><td class="num">2</td><td><span class="chip ei">EI</span></td><td class="pole">I</td><td>이 친구는 시끌벅적한 단톡방에서 주로 읽기만 하거나 필요할 때만 짧게 대답하는 편이다</td></tr>
+    <tr><td class="num">3</td><td><span class="chip sn">SN</span></td><td class="pole">N</td><td>이 친구는 대화 중에 "만약에~"라는 가정을 자주 하거나 엉뚱한 주제로 잘 넘어가는 편이다</td></tr>
+    <tr><td class="num">4</td><td><span class="chip sn">SN</span></td><td class="pole">S</td><td>이 친구는 예전 모임에서 있었던 사소한 팩트나 디테일을 아주 정확하게 기억해 내는 편이다</td></tr>
+    <tr><td class="num">5</td><td><span class="chip tf">TF</span></td><td class="pole">T</td><td>이 친구한테 고민을 털어놓으면, 편을 들어주기보다 뼈 때리는 현실 조언이 먼저 날아온다</td></tr>
+    <tr><td class="num">6</td><td><span class="chip tf">TF</span></td><td class="pole">F</td><td>이 친구는 다른 사람의 미세한 기분 변화를 눈치채고 조용히 챙겨주는 편이다</td></tr>
+    <tr><td class="num">7</td><td><span class="chip jp">JP</span></td><td class="pole">P</td><td>모임 약속이 갑자기 바뀌어도 이 친구는 불평 없이 "거기도 좋아~"라며 쉽게 맞춰주는 편이다</td></tr>
+    <tr><td class="num">8</td><td><span class="chip jp">JP</span></td><td class="pole">J</td><td>우리끼리 놀러 갈 때 이 친구는 장소 예약이나 일정, 동선을 주도적으로 정리하는 편이다</td></tr>
+
+    <tr class="rel-band family"><td colspan="4">🏠 가족</td></tr>
+    <tr><td class="num">1</td><td><span class="chip ei">EI</span></td><td class="pole">E</td><td>외출 후 집에 돌아오면 이 사람은 밖에서 있었던 일을 가족들에게 신나게 먼저 풀어놓는 편이다</td></tr>
+    <tr><td class="num">2</td><td><span class="chip ei">EI</span></td><td class="pole">I</td><td>집에 친척이나 손님이 오면 처음엔 반기다가, 시간이 지나면 어느새 자기 방으로 들어가 있는 편이다</td></tr>
+    <tr><td class="num">3</td><td><span class="chip sn">SN</span></td><td class="pole">N</td><td>이 사람은 비용이나 현실성은 좀 떨어져도 스케일 크고 희망찬 상상을 자주 말하는 편이다</td></tr>
+    <tr><td class="num">4</td><td><span class="chip sn">SN</span></td><td class="pole">S</td><td>이사나 가전 구매 등 집안일을 결정할 때 이 사람은 비용과 조건을 가장 꼼꼼하고 현실적으로 따진다</td></tr>
+    <tr><td class="num">5</td><td><span class="chip tf">TF</span></td><td class="pole">T</td><td>이 사람은 가족에게 잔소리할 때 돌려 말하지 않고 팩트만 직설적으로 말하는 편이다</td></tr>
+    <tr><td class="num">6</td><td><span class="chip tf">TF</span></td><td class="pole">F</td><td>가족 중 누군가 밖에서 억울한 일을 당해 오면, 이 사람은 잘잘못을 따지기 전에 무조건 같이 화내준다</td></tr>
+    <tr><td class="num">7</td><td><span class="chip jp">JP</span></td><td class="pole">P</td><td>이 사람의 방이나 물건이 다소 어질러져 있어도 본인만의 룰이 있어 크게 불편해하지 않는 편이다</td></tr>
+    <tr><td class="num">8</td><td><span class="chip jp">JP</span></td><td class="pole">J</td><td>가족 여행을 가면 이 사람은 앞장서서 가이드처럼 일정을 짜고 짐을 철저히 챙겨야 마음이 편하다</td></tr>
+
+    <tr class="rel-band partner"><td colspan="4">💛 연인</td></tr>
+    <tr><td class="num">1</td><td><span class="chip ei">EI</span></td><td class="pole">E</td><td>이 사람은 연인 외에도 다양한 사람들과 자주 어울리고 싶어하는 편이다</td></tr>
+    <tr><td class="num">2</td><td><span class="chip ei">EI</span></td><td class="pole">I</td><td>밖에서 데이트를 오래 하면 이 사람은 눈이 풀리고 급격히 조용해지는 방전 타이밍이 온다</td></tr>
+    <tr><td class="num">3</td><td><span class="chip sn">SN</span></td><td class="pole">S</td><td>데이트 장소를 고를 때 이 사람은 분위기보다 주차, 동선, 가성비 등 현실적인 조건을 먼저 따진다</td></tr>
+    <tr><td class="num">4</td><td><span class="chip sn">SN</span></td><td class="pole">N</td><td>같이 멍때릴 때 "내가 만약에 좀비가 되면 어떡할 거야?" 같은 과몰입 질문을 자주 하는 편이다</td></tr>
+    <tr><td class="num">5</td><td><span class="chip tf">TF</span></td><td class="pole">T</td><td>다퉜다가 화해할 때, 이 사람은 단순한 미안함보다 "앞으로 어떻게 고칠 건지"를 더 중요하게 여긴다</td></tr>
+    <tr><td class="num">6</td><td><span class="chip tf">TF</span></td><td class="pole">F</td><td>내가 힘든 하루를 보내고 오면 이 사람은 상황을 묻기보다 먼저 따뜻하게 기분을 다독여준다</td></tr>
+    <tr><td class="num">7</td><td><span class="chip jp">JP</span></td><td class="pole">J</td><td>가려던 데이트 맛집이 예고 없이 문을 닫으면 이 사람은 눈에 띄게 크게 당황하거나 스트레스받는다</td></tr>
+    <tr><td class="num">8</td><td><span class="chip jp">JP</span></td><td class="pole">P</td><td>이 사람은 기념일 데이트를 한참 전부터 철저히 예약하기보다 임박해서 유연하게 준비하는 편이다</td></tr>
+
+    <tr class="rel-band coworker"><td colspan="4">💼 동료</td></tr>
+    <tr><td class="num">1</td><td><span class="chip ei">EI</span></td><td class="pole">E</td><td>이 동료는 회의에서 먼저 의견을 내는 편이다</td></tr>
+    <tr><td class="num">2</td><td><span class="chip ei">EI</span></td><td class="pole">I</td><td>이 동료는 큰 그룹 회의보다 소규모 또는 1:1 대화에서 더 적극적으로 참여한다</td></tr>
+    <tr><td class="num">3</td><td><span class="chip sn">SN</span></td><td class="pole">S</td><td>이 동료의 업무 방식은 현실적이고 검증된 방법 중심이다</td></tr>
+    <tr><td class="num">4</td><td><span class="chip sn">SN</span></td><td class="pole">N</td><td>이 동료는 새로운 아이디어와 개선 방안을 자주 제안한다</td></tr>
+    <tr><td class="num">5</td><td><span class="chip tf">TF</span></td><td class="pole">T</td><td>팀원이 업무 고민을 털어놓으면, 이 동료는 공감보다 실질적인 해결책을 먼저 제시하는 편이다</td></tr>
+    <tr><td class="num">6</td><td><span class="chip tf">TF</span></td><td class="pole">F</td><td>팀 내 의견 충돌이 생기면, 이 동료는 논리적 결론보다 서로 감정이 상하지 않게 조율하려 한다</td></tr>
+    <tr><td class="num">7</td><td><span class="chip jp">JP</span></td><td class="pole">J</td><td>이 동료는 업무에 변수가 생기면 즉시 새로운 구조와 계획을 재수립하려 한다</td></tr>
+    <tr><td class="num">8</td><td><span class="chip jp">JP</span></td><td class="pole">P</td><td>이 동료는 프로세스보다 최종 결과에 집중하며, 방법은 상황에 맞게 유연하게 택한다</td></tr>
+  </table>
+  </div>
+</section>
+
+<footer class="doc">
+  PRISM 코드베이스(<code>index.html</code>) 기준으로 작성됨 · 영문판 문항은 같은 구조로 <code>I18N_DATA.en</code>에 대응 존재
+</footer>
+
+</div>
+</body>
+</html>
