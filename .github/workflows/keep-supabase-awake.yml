@@ -1,0 +1,17 @@
+name: Keep Supabase awake
+
+on:
+  schedule:
+    - cron: '0 3 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          curl -sf "https://ckzoudgcvemgssabsomd.supabase.co/rest/v1/prism_sessions?select=id&limit=1" \
+            -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNrem91ZGdjdmVtZ3NzYWJzb21kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNTU0OTMsImV4cCI6MjA5NjkzMTQ5M30.BHwi6vr5ador2TmE1pu9SgQybKycQBf67LBKq-6aKtk" \
+            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNrem91ZGdjdmVtZ3NzYWJzb21kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNTU0OTMsImV4cCI6MjA5NjkzMTQ5M30.BHwi6vr5ador2TmE1pu9SgQybKycQBf67LBKq-6aKtk" \
+            -o /dev/null -w "Supabase responded: %{http_code}\n"
