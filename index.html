@@ -118,6 +118,8 @@ hr.rule{border:none;border-top:1px solid var(--line);margin:52px 0}
 .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center}
 textarea.paste-area{width:100%;font-family:Inter;font-size:14px;padding:15px;border:2px solid var(--line);border-radius:12px;min-height:88px;resize:vertical;margin-top:14px;color:var(--ink);background:var(--paper)}
 textarea.paste-area:focus{border-color:var(--ink);outline:none}
+input.name-input{width:100%;font-family:inherit;font-size:14px;padding:12px 15px;border:2px solid var(--line);border-radius:12px;margin-top:14px;color:var(--ink);background:var(--paper)}
+input.name-input:focus{border-color:var(--ink);outline:none}
 
 /* ── relation pick ── */
 .rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0 32px}
@@ -219,6 +221,7 @@ footer{position:relative}
     <button class="logo" onclick="go('home')">P R I S M</button>
     <div style="display:flex;align-items:center;gap:16px">
       <button class="bar-btn" id="navMapBtn" style="display:none" onclick="go('map')">Identity Map →</button>
+      <button class="bar-btn" onclick="loadAndShowFeedback()" data-ko="한마디" data-en="Comments">한마디</button>
       <button class="bar-btn en" id="langToggle" onclick="toggleLang()">ENG</button>
     </div>
   </div>
@@ -257,9 +260,6 @@ footer{position:relative}
       <button class="btn" style="background:var(--sp);border-color:transparent;color:#0C0C14;font-weight:800;width:100%;max-width:320px;padding:17px 30px;font-size:18px" onclick="startSelf()" data-ko="내 팩폭 지수 확인하기 →" data-en="Check my Fact-Bomb Index →">내 팩폭 지수 확인하기 →</button>
       <button class="bar-btn" style="font-size:15px;color:var(--t3)" onclick="go('inviteeLanding')" data-ko="초대받았어요" data-en="I was invited">초대받았어요</button>
     </div>
-    <p style="margin-top:24px;text-align:center">
-      <button class="bar-btn" style="font-size:13px;color:var(--t3)" onclick="loadAndShowFeedback()" data-ko="모두의 한마디 보기 →" data-en="See everyone's comments →">모두의 한마디 보기 →</button>
-    </p>
   </div>
 
   <!-- Teaser: blurred preview -->
@@ -410,6 +410,7 @@ footer{position:relative}
       <p class="eyebrow en" style="margin-bottom:10px">Feedback</p>
       <h3 style="margin-bottom:6px" data-ko="한마디 남겨주세요" data-en="Leave a comment">한마디 남겨주세요</h3>
       <p class="muted" style="margin-bottom:14px" data-ko="솔직한 의견이 PRISM을 키웁니다" data-en="Honest feedback helps PRISM grow">솔직한 의견이 PRISM을 키웁니다</p>
+      <input type="text" class="name-input" id="fbResultAuthor" maxlength="20" placeholder="닉네임 (선택)" data-ko-ph="닉네임 (선택)" data-en-ph="Nickname (optional)">
       <textarea class="paste-area" id="fbResultText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" style="min-height:88px" data-ko-ph="자유롭게 남겨주세요 (최대 200자)" data-en-ph="Write anything you like (max 200 characters)"></textarea>
       <div class="row" style="margin-top:10px">
         <button class="btn sm" onclick="submitFeedbackFrom('fbResultText','fbResultWrap')" data-ko="남기기" data-en="Submit">남기기</button>
@@ -486,6 +487,7 @@ footer{position:relative}
       <p class="eyebrow en" style="margin-bottom:10px">Feedback</p>
       <h3 style="margin-bottom:6px" data-ko="한마디 남겨주세요" data-en="Leave a comment">한마디 남겨주세요</h3>
       <p class="muted" style="margin-bottom:14px" data-ko="지도를 다 보셨나요? 솔직한 의견이 PRISM을 키웁니다" data-en="Finished exploring the map? Honest feedback helps PRISM grow">지도를 다 보셨나요? 솔직한 의견이 PRISM을 키웁니다</p>
+      <input type="text" class="name-input" id="fbMapAuthor" maxlength="20" placeholder="닉네임 (선택)" data-ko-ph="닉네임 (선택)" data-en-ph="Nickname (optional)">
       <textarea class="paste-area" id="fbMapText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" style="min-height:88px" data-ko-ph="자유롭게 남겨주세요 (최대 200자)" data-en-ph="Write anything you like (max 200 characters)"></textarea>
       <div class="row" style="margin-top:10px">
         <button class="btn sm" onclick="submitFeedbackFrom('fbMapText','fbMapWrap')" data-ko="남기기" data-en="Submit">남기기</button>
@@ -504,6 +506,7 @@ footer{position:relative}
 
     <div class="fb-inline-card" id="fbViewWrap">
       <h3 style="margin-bottom:10px" data-ko="한마디 남기기" data-en="Leave a comment">한마디 남기기</h3>
+      <input type="text" class="name-input" id="fbViewAuthor" maxlength="20" placeholder="닉네임 (선택)" data-ko-ph="닉네임 (선택)" data-en-ph="Nickname (optional)">
       <textarea class="paste-area" id="fbViewText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" style="min-height:88px" data-ko-ph="자유롭게 남겨주세요 (최대 200자)" data-en-ph="Write anything you like (max 200 characters)"></textarea>
       <div class="row" style="margin-top:10px">
         <button class="btn sm" onclick="submitFeedbackFrom('fbViewText','fbViewWrap',true)" data-ko="남기기" data-en="Submit">남기기</button>
@@ -521,6 +524,7 @@ footer{position:relative}
   <p class="eyebrow en" style="text-align:center;margin-bottom:14px">Feedback</p>
   <h2 style="text-align:center;font-size:22px;margin-bottom:8px" data-ko="한마디 남겨주세요" data-en="Leave a comment">한마디 남겨주세요</h2>
   <p class="muted" style="text-align:center;margin-bottom:20px" data-ko="솔직한 의견이 PRISM을 키웁니다" data-en="Honest feedback helps PRISM grow">솔직한 의견이 PRISM을 키웁니다</p>
+  <input type="text" class="name-input" id="fbAuthor" maxlength="20" placeholder="닉네임 (선택)" data-ko-ph="닉네임 (선택)" data-en-ph="Nickname (optional)">
   <textarea class="paste-area" id="fbText" placeholder="자유롭게 남겨주세요 (최대 200자)" maxlength="200" oninput="$('fbCount').textContent=this.value.length" style="min-height:100px" data-ko-ph="자유롭게 남겨주세요 (최대 200자)" data-en-ph="Write anything you like (max 200 characters)"></textarea>
   <div style="text-align:right;font-size:13px;color:var(--t3);margin-top:6px"><span id="fbCount">0</span> / 200</div>
   <p class="err-msg" id="fbErr" style="margin-top:8px" data-ko="잠시 후 다시 시도해 주세요." data-en="Please try again in a moment.">잠시 후 다시 시도해 주세요.</p>
@@ -1468,13 +1472,15 @@ function renderMap(){
 async function submitFeedbackFrom(inputId, wrapId, reload=false){
   const msg=$(inputId).value.trim();
   if(!msg)return;
+  const authorEl=$(inputId.replace('Text','Author'));
+  const author=authorEl?authorEl.value.trim():'';
   const btn=document.querySelector('#'+wrapId+' .btn');
   if(btn)btn.disabled=true;
   try{
     const r=await fetch(SB_URL+'/rest/v1/prism_feedback',{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},
-      body:JSON.stringify({message:msg})
+      body:JSON.stringify({message:msg, author:author||null})
     });
     if(!r.ok)throw new Error();
     $(wrapId).innerHTML=`<div style="text-align:center;padding:28px 0"><p style="font-size:32px;margin-bottom:12px">✓</p><h3>${T.thanksTitle}</h3><p class="muted" style="margin-top:8px">${T.thanksBody}</p></div>`;
@@ -1487,7 +1493,7 @@ async function loadFeedbackList(){
   const list=$('feedbackList');
   list.innerHTML=`<p class="fb-empty">${T.loadingComments}</p>`;
   try{
-    const r=await fetch(SB_URL+'/rest/v1/prism_feedback?select=message,created_at&order=created_at.desc&limit=50',{
+    const r=await fetch(SB_URL+'/rest/v1/prism_feedback?select=message,author,created_at&order=created_at.desc&limit=50',{
       headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
     });
     const data=await r.json();
@@ -1496,7 +1502,8 @@ async function loadFeedbackList(){
       const dt=new Date(d.created_at);
       const diff=Math.floor((Date.now()-dt)/60000);
       const timeStr=diff<1?T.timeJustNow:diff<60?T.timeMinAgo(diff):diff<1440?T.timeHourAgo(Math.floor(diff/60)):T.timeDayAgo(Math.floor(diff/1440));
-      return `<div class="fb-msg-card"><p class="fb-text">${d.message.replace(/</g,'&lt;')}</p><p class="fb-time">${timeStr}</p></div>`;
+      const authorTag=d.author?d.author.replace(/</g,'&lt;')+' · ':'';
+      return `<div class="fb-msg-card"><p class="fb-text">${d.message.replace(/</g,'&lt;')}</p><p class="fb-time">${authorTag}${timeStr}</p></div>`;
     }).join('');
   }catch(e){list.innerHTML=`<p class="fb-empty">${T.loadFailed}</p>`;}
 }
@@ -1515,13 +1522,14 @@ function closeFeedback(){
 async function submitFeedback(){
   const msg=$('fbText').value.trim();
   if(!msg)return;
+  const author=$('fbAuthor').value.trim();
   $('fbSubmitBtn').disabled=true;
   $('fbErr').style.display='none';
   try{
     const r=await fetch(SB_URL+'/rest/v1/prism_feedback',{
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},
-      body:JSON.stringify({message:msg})
+      body:JSON.stringify({message:msg, author:author||null})
     });
     if(!r.ok)throw new Error(await r.text());
     $('fbSheet').innerHTML=`<div class="fb-handle"></div><div style="text-align:center;padding:28px 0 8px"><p style="font-size:36px;margin-bottom:14px">✓</p><h3>${T.thanksTitle}</h3><p class="muted" style="margin-top:8px">${T.thanksBody}</p><button class="btn" style="margin-top:24px;width:100%" onclick="closeFeedback()">${T.close}</button></div>`;
